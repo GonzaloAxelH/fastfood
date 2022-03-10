@@ -6,7 +6,7 @@ const Template = (args) => <NavTop {...args} />;
 export const NavTop1 = Template.bind({});
 
 const Story = {
-  title: "Example/NavTop",
+  title: "Example/Nav",
   component: NavTop,
 };
 

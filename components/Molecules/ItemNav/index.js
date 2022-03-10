@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import Dropdown from "./Dropdown";
 import { useRouter } from "next/router";
-import ArrowDown from "../Icons/ArrowDown";
+import ArrowDown from "../../Atoms/Icons/ArrowDown";
 import { WrapperItemNav } from "./Styles.jsx";
 export const ItemNav = ({ label, links, path = "/example" }) => {
   const router = useRouter();

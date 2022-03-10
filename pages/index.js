@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { ItemNav } from "../components/Atoms/ItemNav";
+import NavCategory from "../components/Organims/NavCategory/NavCategory";
+
 import NavTop from "../components/Organims/NavTop/NavTop";
 
 const Title = styled.h1`
@@ -20,7 +21,8 @@ awesome.min.css"
 wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
         crossOrigin="anonymous"
       ></link>
-      <NavTop />
+
+      <NavCategory />
     </div>
   );
 }

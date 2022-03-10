@@ -7,6 +7,7 @@ const GlobalStyles = createGlobalStyle`
     body {
         margin: 0;
       background-color: #f2f2f2;
+      overflow-x:hidden ;
     }
 `;
 

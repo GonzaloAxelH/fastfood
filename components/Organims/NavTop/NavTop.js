@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { ItemNav } from "../../Atoms/ItemNav";
+import { ItemNav } from "../../Molecules/ItemNav";
 import Logo from "../../Atoms/Logos/Logo";
 import Links from "./ObjectLinks";
 const WrapperNavTop = styled.div`
