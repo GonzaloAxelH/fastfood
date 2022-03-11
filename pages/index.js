@@ -3,23 +3,24 @@ import ItemFood from "../components/Molecules/ItemsFood";
 import MiniNav from "../components/Molecules/MiniNav/MiniNav";
 import PhoneNav from "../components/Molecules/MiniNav/PhoneNAv";
 import NavCategory from "../components/Organims/NavCategory/NavCategory";
-
 import NavTop from "../components/Organims/NavTop/NavTop";
+import Navigation from "../components/Templates/Navigation/Navigation";
 
-const Title = styled.h1`
-  color: ${({ theme }) => theme.colors.colorRed};
-  font-family: "Rubik 700";
-  @media (max-width: ${({ theme }) => theme.screens.mobile}) {
-    color: ${({ theme }) => theme.colors.colorBlue};
-  }
+const WrapperAbsoluteNAvCategory = styled.div`
+  position: absolute;
+  width: 93vw;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 210px;
+  z-index: 12;
 `;
 export default function Home() {
   return (
     <div>
-      <NavTop />
-      <NavCategory />
-      <MiniNav />
-      <PhoneNav />
+      <Navigation />
+      <WrapperAbsoluteNAvCategory>
+        <NavCategory />
+      </WrapperAbsoluteNAvCategory>
     </div>
   );
 }

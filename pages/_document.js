@@ -8,7 +8,7 @@ export default function Document() {
       <Head>
         <meta charSet="utf-8" />
       </Head>
-      <Body>
+      <Body id="body">
         <Main />
         <NextScript />
       </Body>

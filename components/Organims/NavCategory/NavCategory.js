@@ -9,7 +9,6 @@ import DrinkContent from "../ContentsCategoryList/Drinks/index";
 
 import CombosContent from "../ContentsCategoryList/Combos/index";
 const NavCategoryContainer = styled.div`
-  margin: 8em 2.5em;
   position: relative;
   background-color: #fcb900;
   display: flex;
