@@ -48,18 +48,27 @@ const WrapperItem = styled.div`
   }
 `;
 
-export default function ItemCategoryNav({ children, label, Icon, path }) {
+export default function ItemCategoryNav({
+  children,
+  label,
+  Icon,
+  path,
+  left,
+  typeEffect,
+}) {
   const router = useRouter();
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <WrapperItem
-      onClick={() => {
-        router.push(path);
-      }}
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
     >
-      <div className="wrapper">
+      <div
+        className="wrapper"
+        onClick={() => {
+          router.push(path);
+        }}
+      >
         <span className="icon1">
           <Icon />
         </span>
@@ -67,7 +76,12 @@ export default function ItemCategoryNav({ children, label, Icon, path }) {
         <span className="icon2">{children && <ArrowDown />}</span>
       </div>
       {children && (
-        <DropdownCategory isOpen={isOpen} style="ease-in">
+        <DropdownCategory
+          typeEffect={typeEffect}
+          left={left}
+          isOpen={isOpen}
+          style="ease-in"
+        >
           {children}
         </DropdownCategory>
       )}

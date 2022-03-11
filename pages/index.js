@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import ItemFood from "../components/Molecules/ItemsFood";
+import MiniNav from "../components/Molecules/MiniNav/MiniNav";
+import PhoneNav from "../components/Molecules/MiniNav/PhoneNAv";
 import NavCategory from "../components/Organims/NavCategory/NavCategory";
 
 import NavTop from "../components/Organims/NavTop/NavTop";
@@ -13,16 +16,10 @@ const Title = styled.h1`
 export default function Home() {
   return (
     <div>
-      <link
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-
-awesome.min.css"
-        rel="stylesheet"
-        integrity="sha384-
-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-        crossOrigin="anonymous"
-      ></link>
-
+      <NavTop />
       <NavCategory />
+      <MiniNav />
+      <PhoneNav />
     </div>
   );
 }

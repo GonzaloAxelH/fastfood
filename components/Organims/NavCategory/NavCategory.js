@@ -3,7 +3,13 @@ import ItemCategoryNav from "../../Molecules/ItemCategoryNav/";
 import styled from "styled-components";
 import BurguerIcon from "../../Atoms/Icons/CategoryIcons/BurguerIcon";
 import PizzaContent from "../ContentsCategoryList/Pizza/index";
+import BurguerContent from "../ContentsCategoryList/Burguers/index";
+import SandwichesContent from "../ContentsCategoryList/Sandwiches/index";
+import DrinkContent from "../ContentsCategoryList/Drinks/index";
+
+import CombosContent from "../ContentsCategoryList/Combos/index";
 const NavCategoryContainer = styled.div`
+  margin: 8em 2.5em;
   position: relative;
   background-color: #fcb900;
   display: flex;
@@ -46,12 +52,6 @@ const NavCategoryContainer = styled.div`
   }
 `;
 
-const ShadowLeft = styled.div`
-  position: absolute;
-`;
-const ShadowRight = styled.div`
-  position: absolute;
-`;
 export default function NavCategory() {
   return (
     <NavCategoryContainer>
@@ -59,6 +59,7 @@ export default function NavCategory() {
         label="PIZZA"
         Icon={() => <BurguerIcon />}
         path="/product-category/pizza"
+        left="-10vw"
       >
         <PizzaContent />
       </ItemCategoryNav>
@@ -66,15 +67,18 @@ export default function NavCategory() {
         label="BURGUERS"
         Icon={BurguerIcon}
         path="/product-category/pizza"
+        left="-15vw"
       >
-        <PizzaContent />
+        <BurguerContent />
       </ItemCategoryNav>
       <ItemCategoryNav
         label="SANDWICHES"
+        typeEffect="opacity-effect"
         Icon={BurguerIcon}
         path="/product-category/pizza"
+        left="0em"
       >
-        <PizzaContent />
+        <SandwichesContent />
       </ItemCategoryNav>
       <ItemCategoryNav
         label="SIDES & SALADS"
@@ -82,19 +86,26 @@ export default function NavCategory() {
         path="/product-category/pizza"
       />
       <ItemCategoryNav
+        label="COMBOS"
+        Icon={BurguerIcon}
+        path="/product-category/combos"
+        left="-23vw"
+      >
+        <CombosContent />
+      </ItemCategoryNav>
+      <ItemCategoryNav
         label="DRINKS"
         Icon={BurguerIcon}
         path="/product-category/pizza"
+        left="-17vw"
       >
-        <PizzaContent />
+        <DrinkContent />
       </ItemCategoryNav>
       <ItemCategoryNav
         label="DESSERTS"
         Icon={BurguerIcon}
         path="/product-category/pizza"
-      >
-        <PizzaContent />
-      </ItemCategoryNav>
+      ></ItemCategoryNav>
     </NavCategoryContainer>
   );
 }
