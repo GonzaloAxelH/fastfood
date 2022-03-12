@@ -8,10 +8,10 @@ const WrapperItem = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  height: 4em;
+  height: 100%;
   .wrapper {
     cursor: pointer;
-    padding: 0 10px;
+    padding: 10px;
     display: flex;
     align-items: center;
   }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ItemCategoryNav from "../../Molecules/ItemCategoryNav/";
 import styled from "styled-components";
 import BurguerIcon from "../../Atoms/Icons/CategoryIcons/BurguerIcon";
@@ -6,12 +6,13 @@ import PizzaContent from "../ContentsCategoryList/Pizza/index";
 import BurguerContent from "../ContentsCategoryList/Burguers/index";
 import SandwichesContent from "../ContentsCategoryList/Sandwiches/index";
 import DrinkContent from "../ContentsCategoryList/Drinks/index";
-
 import CombosContent from "../ContentsCategoryList/Combos/index";
+
 const NavCategoryContainer = styled.div`
   position: relative;
   background-color: #fcb900;
   display: flex;
+
   justify-content: center;
   border-radius: 8px;
 
@@ -49,11 +50,16 @@ const NavCategoryContainer = styled.div`
     transform: rotate(2deg);
     z-index: -1;
   }
+
+  max-height: ${(props) => (props.offset == 0 ? "4em" : "0")};
+
+  overflow: ${(props) => (props.offset == 0 ? "visible" : "hidden")};
+  transition: 0.2s all;
 `;
 
-export default function NavCategory() {
+export default function NavCategory({ scrollOffset }) {
   return (
-    <NavCategoryContainer>
+    <NavCategoryContainer offset={scrollOffset}>
       <ItemCategoryNav
         label="PIZZA"
         Icon={() => <BurguerIcon />}

@@ -20,7 +20,7 @@ const Right = styled.div`
   padding-right: 3em;
 `;
 
-export default function NavTop() {
+export default function NavTop({ offset }) {
   return (
     <WrapperNavTop>
       <Left>
@@ -30,7 +30,7 @@ export default function NavTop() {
         <ItemNav label="ORDER MENU" path="/google" />
       </Left>
       <div>
-        <Logo />
+        <Logo offset={offset} />
       </div>
       <Right>
         <ItemNav label="HOME" />

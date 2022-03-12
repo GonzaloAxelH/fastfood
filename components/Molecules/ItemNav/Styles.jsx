@@ -34,6 +34,7 @@ export const WrapperItemNav = styled.div`
     width: 0.9em;
     height: 0.9em;
   }
+  z-index: 999999;
 `;
 export const WrapperDropdown = styled.div`
   position: absolute;
@@ -43,7 +44,7 @@ export const WrapperDropdown = styled.div`
   background: transparent;
   border-radius: 3px;
   width: 200px;
-  z-index: 999;
+  z-index: 99999;
 `;
 export const LinkDropdown = styled.div`
   background-color: #fff;

@@ -2,11 +2,11 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Box, WrapperLogo, BoxBefore, BoxAfter } from "./Styles.jsx";
-export default function Logo() {
+export default function Logo({ offset }) {
   return (
-    <WrapperLogo>
-      <Box>
-        <BoxBefore />
+    <WrapperLogo offset={offset}>
+      <Box offset={offset}>
+        <BoxBefore offset={offset} />
         <Link href="/">
           <a>
             <div className="img">
@@ -14,13 +14,12 @@ export default function Logo() {
                 src="https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/06/logo-lafka-shop.png"
                 blurDataURL="https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2019/06/logo-lafka-shop.png"
                 alt="logo-lafka"
-                width={110}
-                height={110}
+                layout="fill"
               />
             </div>
           </a>
         </Link>
-        <BoxAfter />
+        <BoxAfter offset={offset} />
       </Box>
     </WrapperLogo>
   );

@@ -7,23 +7,26 @@ const NavigationWrapperFixed = styled.div`
   position: fixed;
   width: 100vw;
   z-index: 10;
-  background: transparent;
+  background: ${(props) => (props.offset == 0 ? "transparent" : "#fff")};
+
+  transition: 0.25s all;
 `;
 const WrapperMiniNavs = styled.div`
   display: flex;
   padding: 0 50px;
   width: 100%;
 
-  height: 152px;
+  height: ${(props) => (props.offset == 0 ? "130px" : "90px")};
   justify-content: space-between;
   align-items: center;
+  transition: 0.2s all;
 `;
 
-export default function Navigation() {
+export default function Navigation({ scrollOffset }) {
   return (
-    <NavigationWrapperFixed>
-      <NavTop />
-      <WrapperMiniNavs>
+    <NavigationWrapperFixed offset={scrollOffset}>
+      <NavTop offset={scrollOffset} />
+      <WrapperMiniNavs offset={scrollOffset}>
         <PhoneNav />
         <MiniNav />
       </WrapperMiniNavs>
