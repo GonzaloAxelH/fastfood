@@ -1,9 +1,5 @@
 import styled from "styled-components";
-import ItemFood from "../components/Molecules/ItemsFood";
-import MiniNav from "../components/Molecules/MiniNav/MiniNav";
-import PhoneNav from "../components/Molecules/MiniNav/PhoneNAv";
 import NavCategory from "../components/Organims/NavCategory/NavCategory";
-import NavTop from "../components/Organims/NavTop/NavTop";
 import Navigation from "../components/Templates/Navigation/Navigation";
 import BannerSlide from "../components/Templates/Banners/BannerSlide";
 import { useState, useEffect } from "react";
