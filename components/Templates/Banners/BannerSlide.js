@@ -7,7 +7,7 @@ import P from "../../Atoms/Parrafos/P";
 import Button from "../../Atoms/Buttons/index";
 const BannerSlideWrapper = styled(Carousel)`
   width: 100vw;
-  min-height: 130vh;
+
   .rec-slider-container {
     margin: 0;
   }

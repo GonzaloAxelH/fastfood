@@ -3,6 +3,7 @@ import NavCategory from "../components/Organims/NavCategory/NavCategory";
 import Navigation from "../components/Templates/Navigation/Navigation";
 import BannerSlide from "../components/Templates/Banners/BannerSlide";
 import { useState, useEffect } from "react";
+import ListCategorySlide from "../components/Organims/ListCategorySlide/ListCategorySlide";
 
 const WrapperAbsoluteNAvCategory = styled.div`
   position: absolute;
@@ -30,8 +31,12 @@ export default function Home() {
           <NavCategory scrollOffset={offset} />
         </WrapperAbsoluteNAvCategory>
       </div>
-      <BannerSlide />
-      <h1>Otras secciones</h1>
+      <section>
+        <BannerSlide />
+      </section>
+      <section>
+        <ListCategorySlide />
+      </section>
     </div>
   );
 }
