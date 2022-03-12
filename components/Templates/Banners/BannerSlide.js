@@ -53,14 +53,32 @@ const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: ${(props) => props.theme.screens.tabletXL}) {
+    flex-direction: column;
+    justify-content: center;
+    padding: 230px 0px 50px 0px;
+  }
+
+  @media (max-width: ${(props) => props.theme.screens.desktop}) {
+    padding: 200px 50px 50px 50px;
+  }
 `;
 const InfoBanner = styled.div`
-  padding-top: 0em;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+
+  @media (max-width: ${(props) => props.theme.screens.tabletXL}) {
+    align-items: center;
+  }
   p {
+    @media (max-width: ${(props) => props.theme.screens.tabletXL}) {
+      text-align: center;
+    }
     margin-top: 1em;
+  }
+  button {
+    max-width: 193px;
   }
 `;
 const ImageBanner = styled.div`
@@ -68,6 +86,8 @@ const ImageBanner = styled.div`
   width: 540px;
   height: 540px;
   transition: 03s all;
+
+  margin-right: -3em;
   img {
     object-fit: contain;
     user-drag: none;
@@ -76,6 +96,16 @@ const ImageBanner = styled.div`
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+  }
+
+  @media (max-width: ${(props) => props.theme.screens.tabletL}) {
+    width: 440px;
+    height: 440px;
+  }
+
+  @media (max-width: ${(props) => props.theme.screens.mobileL}) {
+    width: 340px;
+    height: 340px;
   }
 `;
 export default function BannerSlide() {
@@ -92,7 +122,7 @@ export default function BannerSlide() {
       <ContentBanner background="https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2021/06/yellow-lafka-hero-back.jpg?id=5617">
         <InfoBanner>
           <Title size="58px" color="#fff">{`SAVIN' CRAVIN'`}</Title>
-          <Title size="70px" color="#fff">
+          <Title size="68px" color="#fff">
             COMBO MEALS
           </Title>
           <P size="19px" color="#fff">

@@ -30,9 +30,16 @@ const PhoneWrapper = styled.div`
   }
 
   @media (max-width: 768px) {
+  }
+
+  @media (max-width: ${(props) => props.theme.screens.tabletL}) {
     width: 48px;
     height: 48px;
     padding: 11px;
+    position: absolute;
+    right: 1em;
+    bottom: -65vh;
+    z-index: 9999;
     p {
       display: none;
     }

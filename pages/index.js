@@ -3,6 +3,7 @@ import NavCategory from "../components/Organims/NavCategory/NavCategory";
 import Navigation from "../components/Templates/Navigation/Navigation";
 import BannerSlide from "../components/Templates/Banners/BannerSlide";
 import { useState, useEffect } from "react";
+
 const WrapperAbsoluteNAvCategory = styled.div`
   position: absolute;
   width: 93vw;

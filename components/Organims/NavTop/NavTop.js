@@ -5,7 +5,6 @@ import Logo from "../../Atoms/Logos/Logo";
 import Links from "./ObjectLinks";
 const WrapperNavTop = styled.div`
   margin-top: 1em;
-
   background-color: #222222;
   display: flex;
   justify-content: space-around;

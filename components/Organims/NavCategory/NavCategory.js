@@ -55,12 +55,48 @@ const NavCategoryContainer = styled.div`
 
   overflow: ${(props) => (props.offset == 0 ? "visible" : "hidden")};
   transition: 0.2s all;
+
+  .item-1,
+  .item-2,
+  .item-3,
+  .item-4,
+  .item-5,
+  .item-6,
+  .item-7 {
+    display: flex;
+  }
+  @media (max-width: ${(props) => props.theme.screens.desktop}) {
+    .item-1,
+    .item-2 {
+      display: none;
+    }
+  }
+  @media (max-width: ${(props) => props.theme.screens.tabletXL}) {
+    .item-1,
+    .item-2,
+    .item-3 {
+      display: none;
+    }
+  }
+
+  @media (max-width: ${(props) => props.theme.screens.tabletXL}) {
+    .item-1,
+    .item-2,
+    .item-3,
+    .item-4,
+    .item-5,
+    .item-6,
+    .item-7 {
+      display: none;
+    }
+  }
 `;
 
 export default function NavCategory({ scrollOffset }) {
   return (
     <NavCategoryContainer offset={scrollOffset}>
       <ItemCategoryNav
+        className="item-1"
         label="PIZZA"
         Icon={() => <BurguerIcon />}
         path="/product-category/pizza"
@@ -69,6 +105,7 @@ export default function NavCategory({ scrollOffset }) {
         <PizzaContent />
       </ItemCategoryNav>
       <ItemCategoryNav
+        className="item-2"
         label="BURGUERS"
         Icon={BurguerIcon}
         path="/product-category/pizza"
@@ -77,6 +114,7 @@ export default function NavCategory({ scrollOffset }) {
         <BurguerContent />
       </ItemCategoryNav>
       <ItemCategoryNav
+        className="item-3"
         label="SANDWICHES"
         typeEffect="opacity-effect"
         Icon={BurguerIcon}
@@ -86,11 +124,13 @@ export default function NavCategory({ scrollOffset }) {
         <SandwichesContent />
       </ItemCategoryNav>
       <ItemCategoryNav
+        className="item-4"
         label="SIDES & SALADS"
         Icon={BurguerIcon}
         path="/product-category/pizza"
       />
       <ItemCategoryNav
+        className="item-5"
         label="COMBOS"
         Icon={BurguerIcon}
         path="/product-category/combos"
@@ -99,6 +139,7 @@ export default function NavCategory({ scrollOffset }) {
         <CombosContent />
       </ItemCategoryNav>
       <ItemCategoryNav
+        className="item-6"
         label="DRINKS"
         Icon={BurguerIcon}
         path="/product-category/pizza"
@@ -107,6 +148,7 @@ export default function NavCategory({ scrollOffset }) {
         <DrinkContent />
       </ItemCategoryNav>
       <ItemCategoryNav
+        className="item-7"
         label="DESSERTS"
         Icon={BurguerIcon}
         path="/product-category/pizza"

@@ -15,13 +15,15 @@ const MiniNavWrapper = styled.div`
   -moz-box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.12);
   -webkit-box-shadow: 0 0 30px 0 rgb(0 0 0 / 12%);
 
-  @media (max-width: 768px) {
+  @media (max-width: ${(props) => props.theme.screens.tabletL}) {
     flex-direction: column;
     justify-content: center;
     height: 174px;
     width: 48px;
-
     padding: 11px;
+    position: absolute;
+    right: 1em;
+    bottom: -27em;
   }
 `;
 

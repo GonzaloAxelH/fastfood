@@ -1,6 +1,7 @@
 import styled from "styled-components";
 export const WrapperItemNav = styled.div`
   position: relative;
+
   font-size: 13px;
   color: #fff;
   cursor: pointer;
@@ -15,6 +16,10 @@ export const WrapperItemNav = styled.div`
     transition: 0.25s all;
     display: flex;
     align-items: center;
+
+    @media (max-width: ${(props) => props.theme.screens.desktopL}) {
+      display: none;
+    }
   }
   li:hover {
     color: #fcb900;
@@ -37,6 +42,9 @@ export const WrapperItemNav = styled.div`
   z-index: 999999;
 `;
 export const WrapperDropdown = styled.div`
+  @media (max-width: ${(props) => props.theme.screens.desktopL}) {
+    display: none;
+  }
   position: absolute;
   color: #000;
   top: 90%;

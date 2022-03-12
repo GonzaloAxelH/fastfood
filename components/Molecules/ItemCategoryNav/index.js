@@ -55,6 +55,7 @@ export default function ItemCategoryNav({
   path,
   left,
   typeEffect,
+  ...props
 }) {
   const router = useRouter();
   const [isOpen, setIsOpen] = React.useState(false);
@@ -62,6 +63,7 @@ export default function ItemCategoryNav({
     <WrapperItem
       onMouseEnter={() => setIsOpen(true)}
       onMouseLeave={() => setIsOpen(false)}
+      {...props}
     >
       <div
         className="wrapper"

@@ -9,6 +9,10 @@ const NavigationWrapperFixed = styled.div`
   z-index: 10;
   background: ${(props) => (props.offset == 0 ? "transparent" : "#fff")};
 
+  @media (max-width: ${(props) => props.theme.screens.tabletL}) {
+    background: ${(props) =>
+      props.offset == 0 ? "transparent" : "transparent"};
+  }
   transition: 0.25s all;
 `;
 const WrapperMiniNavs = styled.div`
