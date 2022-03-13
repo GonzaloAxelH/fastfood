@@ -4,7 +4,7 @@ import Image from "next/image";
 import Carousel, { consts } from "react-elastic-carousel";
 import Title from "../../Atoms/Titles/Title";
 import P from "../../Atoms/Parrafos/P";
-import Button from "../../Atoms/Buttons/index";
+import Button from "../../Atoms/Buttons/Button";
 const BannerSlideWrapper = styled(Carousel)`
   width: 100vw;
 

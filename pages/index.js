@@ -3,7 +3,9 @@ import NavCategory from "../components/Organims/NavCategory/NavCategory";
 import Navigation from "../components/Templates/Navigation/Navigation";
 import BannerSlide from "../components/Templates/Banners/BannerSlide";
 import { useState, useEffect } from "react";
+import GrilledBurgers from "../components/Templates/GrilledBurgers/GrilledBurgers";
 import ListCategorySlide from "../components/Organims/ListCategorySlide/ListCategorySlide";
+import useScroll from "../Hooks/useScroll";
 
 const WrapperAbsoluteNAvCategory = styled.div`
   position: absolute;
@@ -15,16 +17,9 @@ const WrapperAbsoluteNAvCategory = styled.div`
   z-index: 1;
 `;
 export default function Home() {
-  const [offset, setOffset] = useState(0);
-  useEffect(() => {
-    const onScroll = () => setOffset(window.pageYOffset);
-    // clean up code
-    window.removeEventListener("scroll", onScroll);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  const { offset } = useScroll();
   return (
-    <div>
+    <>
       <div>
         <Navigation scrollOffset={offset} />
         <WrapperAbsoluteNAvCategory scrollOffset={offset}>
@@ -37,6 +32,9 @@ export default function Home() {
       <section>
         <ListCategorySlide />
       </section>
-    </div>
+      <section>
+        <GrilledBurgers />
+      </section>
+    </>
   );
 }

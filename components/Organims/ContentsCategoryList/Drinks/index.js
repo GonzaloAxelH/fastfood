@@ -1,7 +1,7 @@
 import React from "react";
 
 import styled from "styled-components";
-import Btn from "../../../Atoms/Buttons";
+import Btn from "../../../Atoms/Buttons/Button";
 import P from "../../../Atoms/Parrafos/P";
 import Title from "../../../Atoms/Titles/Title";
 import ItemFood from "../../../Molecules/ItemsFood/";
