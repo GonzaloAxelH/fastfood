@@ -6,8 +6,9 @@ import { useState, useEffect } from "react";
 import GrilledBurgers from "../components/Templates/GrilledBurgers/GrilledBurgers";
 import ListCategorySlide from "../components/Organims/ListCategorySlide/ListCategorySlide";
 import useScroll from "../Hooks/useScroll";
+import Footer from "../components/Templates/Footer/Footer";
 
-const WrapperAbsoluteNAvCategory = styled.div`
+const WrapperAbsoluteNavCategory = styled.div`
   position: absolute;
   width: 93vw;
   left: 50%;
@@ -20,21 +21,23 @@ export default function Home() {
   const { offset } = useScroll();
   return (
     <>
-      <div>
-        <Navigation scrollOffset={offset} />
-        <WrapperAbsoluteNAvCategory scrollOffset={offset}>
-          <NavCategory scrollOffset={offset} />
-        </WrapperAbsoluteNAvCategory>
+      <Navigation scrollOffset={offset} />
+      <WrapperAbsoluteNavCategory scrollOffset={offset}>
+        <NavCategory scrollOffset={offset} />
+      </WrapperAbsoluteNavCategory>
+
+      <div className="wrapper-page-home">
+        <section>
+          <BannerSlide />
+        </section>
+        <section>
+          <ListCategorySlide />
+        </section>
+        <section>
+          <GrilledBurgers />
+        </section>
       </div>
-      <section>
-        <BannerSlide />
-      </section>
-      <section>
-        <ListCategorySlide />
-      </section>
-      <section>
-        <GrilledBurgers />
-      </section>
+      <Footer />
     </>
   );
 }
