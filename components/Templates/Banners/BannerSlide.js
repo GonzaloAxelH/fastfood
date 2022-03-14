@@ -116,7 +116,7 @@ export default function BannerSlide() {
       itemsToScroll={1}
       itemsToShow={1}
       enableAutoPlay
-      autoPlaySpeed={3000}
+      autoPlaySpeed={5000}
       onChange={(currentItem, pageIndex) => setPosition(pageIndex)}
     >
       <ContentBanner background="https://lafka.althemist.com/fastfood/wp-content/uploads/sites/2/2021/06/yellow-lafka-hero-back.jpg?id=5617">

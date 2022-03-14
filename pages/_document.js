@@ -2,6 +2,7 @@ import { Html, Main, Head, NextScript } from "next/document";
 import styled from "styled-components";
 
 const Body = styled.body``;
+const CartPortal = styled.div``;
 export default function Document() {
   return (
     <Html lang="es">
@@ -10,6 +11,7 @@ export default function Document() {
       </Head>
       <Body id="body">
         <Main />
+        <CartPortal id="sliding-cart"></CartPortal>
         <NextScript />
       </Body>
     </Html>

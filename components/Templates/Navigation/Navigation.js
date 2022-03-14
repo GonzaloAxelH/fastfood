@@ -24,15 +24,33 @@ const WrapperMiniNavs = styled.div`
   justify-content: space-between;
   align-items: center;
   transition: 0.2s all;
+
+  .temp-menu {
+    position: absolute;
+    right: 2.3em;
+    top: 2.6em;
+  }
 `;
 
-export default function Navigation({ scrollOffset }) {
+export default function Navigation({
+  scrollOffset,
+  openSlidingCart,
+  openSlidingFavorite,
+  openSlidingUser,
+  openSlidingSearch,
+  openMenu,
+}) {
   return (
     <NavigationWrapperFixed offset={scrollOffset}>
-      <NavTop offset={scrollOffset} />
+      <NavTop offset={scrollOffset} openMenu={openMenu} />
       <WrapperMiniNavs offset={scrollOffset}>
         <PhoneNav />
-        <MiniNav />
+        <MiniNav
+          openSlidingCart={openSlidingCart}
+          openSlidingFavorite={openSlidingFavorite}
+          openSlidingUser={openSlidingUser}
+          openSlidingSearch={openSlidingSearch}
+        />
       </WrapperMiniNavs>
     </NavigationWrapperFixed>
   );

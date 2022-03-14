@@ -27,32 +27,24 @@ const MiniNavWrapper = styled.div`
   }
 `;
 
-export default function MiniNav() {
+export default function MiniNav({
+  openSlidingCart,
+  openSlidingFavorite,
+  openSlidingUser,
+  openSlidingSearch,
+}) {
   return (
     <MiniNavWrapper>
-      <Item
-        type="account"
-        onClick={() => alert("Account Onclick")}
-        Icon={BiUser}
-      />
+      <Item type="account" onClick={openSlidingUser} Icon={BiUser} />
       <Item
         type="favorite"
-        onClick={() => alert("Favorite Onclick")}
+        onClick={openSlidingFavorite}
         Icon={BiHeart}
         number={2}
       />
 
-      <Item
-        type="cart"
-        onClick={() => alert("Cart Onclick")}
-        Icon={BiCart}
-        number={1}
-      />
-      <Item
-        type="search"
-        onClick={() => alert("Search Onclick")}
-        Icon={BiSearch}
-      />
+      <Item type="cart" onClick={openSlidingCart} Icon={BiCart} number={1} />
+      <Item type="search" onClick={openSlidingSearch} Icon={BiSearch} />
     </MiniNavWrapper>
   );
 }

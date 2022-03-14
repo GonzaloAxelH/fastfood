@@ -16,8 +16,10 @@ export const WrapperItemNav = styled.div`
     transition: 0.25s all;
     display: flex;
     align-items: center;
-
-    @media (max-width: ${(props) => props.theme.screens.desktopL}) {
+  }
+  @media (max-width: ${(props) => props.theme.screens.desktopL}) {
+    padding: 0;
+    li {
       display: none;
     }
   }
