@@ -59,6 +59,10 @@ const Prices = styled.div`
   font-family: "Rubik 500";
   color: #f2002d;
   margin: 0.5em 0;
+  span:before {
+    content: "$";
+    font-size: 11px;
+  }
 `;
 const NegativeAddons = styled.div``;
 const ExtraToppings = styled.div``;
@@ -69,7 +73,9 @@ const VeggiesGoodStuff = styled.div``;
 const Toppings = styled.div``;
 const PizzaBuildOptions = styled.div``;
 
-const DeleteProduct = styled.div``;
+const DeleteProduct = styled.div`
+  cursor: pointer;
+`;
 const AllFoodOptions = styled.div`
   display: flex;
   width: 100%;
@@ -194,7 +200,7 @@ function ItemFoodCart({ itemFood, closeSlidingCart }) {
           )}
         </ListOptions>
         <Prices>
-          {priceUnit} x {quantity}
+          {quantity} x <span>{priceUnit} </span>
         </Prices>
       </InfoProduct>
       <DeleteProduct>
