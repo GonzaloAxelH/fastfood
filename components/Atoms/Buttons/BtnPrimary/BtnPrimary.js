@@ -3,8 +3,13 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 const Button = styled.button`
   cursor: pointer;
-  background-color: #f2002d;
+
+  background-color: #333333;
   color: #ffffff;
+  display: flex;
+  align-items: center;
+  align-items: center;
+  justify-content: center;
   border-radius: 999px;
   font-size: 0.8em;
   text-transform: uppercase;
@@ -21,7 +26,12 @@ const Button = styled.button`
     opacity: 1;
   }
 `;
-export default function Btn(props) {
+export default function BtnPrimary(props) {
+  const { label } = props;
   const router = useRouter();
-  return <Button onClick={() => router.push("/")}>{props.label}</Button>;
+  return (
+    <Button onClick={() => router.push("/")}>
+      {label ? label : props.children}
+    </Button>
+  );
 }

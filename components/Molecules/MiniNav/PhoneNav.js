@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { BiPhoneCall } from "react-icons/bi";
+import { FiPhoneCall } from "react-icons/fi";
 const PhoneWrapper = styled.div`
   cursor: pointer;
   font-family: "Rubik 400";
@@ -29,16 +29,13 @@ const PhoneWrapper = styled.div`
     font-size: 16px;
   }
 
-  @media (max-width: 768px) {
-  }
-
   @media (max-width: ${(props) => props.theme.screens.tabletL}) {
     width: 48px;
     height: 48px;
     padding: 11px;
     position: absolute;
-    right: 1em;
-    bottom: -65vh;
+    left: 1em;
+    top: 7em;
     z-index: 9999;
     p {
       display: none;
@@ -62,7 +59,7 @@ export default function PhoneNav() {
     <PhoneWrapper onClick={() => alert("call direction")}>
       <p>Order Online or Call Now</p>
       <div>
-        <BiPhoneCall />
+        <FiPhoneCall />
         <span>+555 234 766</span>
       </div>
     </PhoneWrapper>

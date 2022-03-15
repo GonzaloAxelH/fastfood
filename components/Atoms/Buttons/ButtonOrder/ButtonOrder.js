@@ -19,5 +19,5 @@ const Button = styled.button`
   }
 `;
 export default function ButtonOrder({ label, ...props }) {
-  return <Button {...props}>{label}</Button>;
+  return <Button {...props}>{label ? label : props.children}</Button>;
 }

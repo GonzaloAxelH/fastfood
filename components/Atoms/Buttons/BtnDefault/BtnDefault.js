@@ -20,7 +20,11 @@ const Button = styled.button`
     background-color: #333333;
   }
 `;
-export default function Btn(props) {
+export default function Btn({ label, ...props }) {
   const router = useRouter();
-  return <Button onClick={() => router.push("/")}>{props.label}</Button>;
+  return (
+    <Button onClick={() => router.push("/")}>
+      {label ? label : props.children}
+    </Button>
+  );
 }

@@ -4,7 +4,7 @@ import PortalMenuLeft from "../../Portals/MenuLeftPortal";
 import { useState, useEffect } from "react";
 
 const Title = styled.h1`
-  color: #fff;
+  color: #222;
   font-family: "Rubik 700";
   padding: 2em;
 `;

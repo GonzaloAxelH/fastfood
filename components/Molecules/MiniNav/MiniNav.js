@@ -1,7 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import Item from "./Item";
-import { BiHeart, BiUser, BiSearch, BiCart } from "react-icons/bi";
+
+import {
+  FiMenu,
+  FiShoppingBag,
+  FiHeart,
+  FiUser,
+  FiSearch,
+} from "react-icons/fi";
 const MiniNavWrapper = styled.div`
   background-color: #fff;
   border-radius: 99px;
@@ -32,19 +39,25 @@ export default function MiniNav({
   openSlidingFavorite,
   openSlidingUser,
   openSlidingSearch,
+  openMenu,
 }) {
   return (
     <MiniNavWrapper>
-      <Item type="account" onClick={openSlidingUser} Icon={BiUser} />
+      <Item type="account" onClick={openSlidingUser} Icon={FiUser} />
       <Item
         type="favorite"
         onClick={openSlidingFavorite}
-        Icon={BiHeart}
+        Icon={FiHeart}
         number={2}
       />
 
-      <Item type="cart" onClick={openSlidingCart} Icon={BiCart} number={1} />
-      <Item type="search" onClick={openSlidingSearch} Icon={BiSearch} />
+      <Item
+        type="cart"
+        onClick={openSlidingCart}
+        Icon={FiShoppingBag}
+        number={1}
+      />
+      <Item type="search" onClick={openSlidingSearch} Icon={FiSearch} />
     </MiniNavWrapper>
   );
 }
