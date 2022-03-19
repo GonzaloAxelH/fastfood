@@ -15,7 +15,7 @@ const PortalWrapperAbsolute = styled.div`
   -webkit-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
   transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
   z-index: 21000;
-
+  overflow: hidden;
   .button-close2 {
     cursor: pointer;
     position: absolute;

@@ -20,10 +20,13 @@ const Button = styled.button`
     background-color: #333333;
   }
 `;
-export default function Btn({ label, ...props }) {
+export default function Btn({ label, submit, to, ...props }) {
   const router = useRouter();
   return (
-    <Button onClick={() => router.push("/")}>
+    <Button
+      type={submit ? "submit" : "button"}
+      onClick={() => (submit ? null : router.push(to ? to : "/"))}
+    >
       {label ? label : props.children}
     </Button>
   );

@@ -99,7 +99,7 @@ export default function NavCategory({ scrollOffset }) {
         className="item-1"
         label="PIZZA"
         Icon={() => <BurguerIcon />}
-        path="/product-category/pizza"
+        path="/fastfood/product-category/pizzas"
         left="-10vw"
       >
         <PizzaContent />
@@ -108,7 +108,7 @@ export default function NavCategory({ scrollOffset }) {
         className="item-2"
         label="BURGUERS"
         Icon={BurguerIcon}
-        path="/product-category/pizza"
+        path="/fastfood/product-category/burgers"
         left="-15vw"
       >
         <BurguerContent />
@@ -118,7 +118,7 @@ export default function NavCategory({ scrollOffset }) {
         label="SANDWICHES"
         typeEffect="opacity-effect"
         Icon={BurguerIcon}
-        path="/product-category/pizza"
+        path="/fastfood/product-category/sandwiches"
         left="0em"
       >
         <SandwichesContent />
@@ -127,13 +127,13 @@ export default function NavCategory({ scrollOffset }) {
         className="item-4"
         label="SIDES & SALADS"
         Icon={BurguerIcon}
-        path="/product-category/pizza"
+        path="/fastfood/product-category/sides-salads"
       />
       <ItemCategoryNav
         className="item-5"
         label="COMBOS"
         Icon={BurguerIcon}
-        path="/product-category/combos"
+        path="/fastfood/product-category/combos"
         left="-23vw"
       >
         <CombosContent />
@@ -142,7 +142,7 @@ export default function NavCategory({ scrollOffset }) {
         className="item-6"
         label="DRINKS"
         Icon={BurguerIcon}
-        path="/product-category/pizza"
+        path="/fastfood/product-category/drinks"
         left="-17vw"
       >
         <DrinkContent />
@@ -151,7 +151,7 @@ export default function NavCategory({ scrollOffset }) {
         className="item-7"
         label="DESSERTS"
         Icon={BurguerIcon}
-        path="/product-category/pizza"
+        path="/fastfood/product-category/desserts"
       ></ItemCategoryNav>
     </NavCategoryContainer>
   );
