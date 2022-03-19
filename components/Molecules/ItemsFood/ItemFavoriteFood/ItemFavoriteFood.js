@@ -59,14 +59,7 @@ function ItemFavoriteFood({ item }) {
     <ItemFoodContainer>
       <Link href="">
         <a className="image-wrapper">
-          <Image
-            src={img}
-            alt={name}
-            width={200}
-            height={200}
-            objectFit="contain"
-            layout="fill"
-          />
+          <Image src={img} alt={name} objectFit="contain" layout="fill" />
         </a>
       </Link>
       <div className="info">

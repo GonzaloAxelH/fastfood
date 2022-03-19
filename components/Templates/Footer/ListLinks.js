@@ -81,7 +81,7 @@ export default function ListLinks({ title, links }) {
             );
           } else {
             return (
-              <li className="no-link">
+              <li key={index} className="no-link">
                 {Icon && <Icon />}
                 {name}
               </li>

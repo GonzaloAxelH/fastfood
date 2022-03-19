@@ -175,8 +175,8 @@ function ItemFoodCart({ itemFood, closeSlidingCart }) {
                     return (
                       <OptionFood
                         key={index}
-                        optionName={negativeAddon.option}
-                        price={negativeAddon.ammount}
+                        optionName={negativeAddon.name}
+                        price={negativeAddon.price}
                       />
                     );
                   })}
@@ -189,8 +189,8 @@ function ItemFoodCart({ itemFood, closeSlidingCart }) {
                     return (
                       <OptionFood
                         key={index}
-                        optionName={negativeAddon.option}
-                        price={negativeAddon.ammount}
+                        optionName={negativeAddon.name}
+                        price={negativeAddon.price}
                       />
                     );
                   })}

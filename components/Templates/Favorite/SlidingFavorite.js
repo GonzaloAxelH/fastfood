@@ -92,8 +92,8 @@ function SlidingFavorite({ favoriteIsOpen, closeSlidingFavorite }) {
   return (
     <SlidingPortal isOpen={favoriteIsOpen} handleClose={closeSlidingFavorite}>
       <WrapperFavorites>
-        {tempFavorite.map((item) => {
-          return <ItemFavoriteFood key={item.id} item={item} />;
+        {tempFavorite.map((item, index) => {
+          return <ItemFavoriteFood key={index} item={item} />;
         })}
       </WrapperFavorites>
     </SlidingPortal>

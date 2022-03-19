@@ -119,10 +119,7 @@ export default function ListCategorySlide() {
     { width: getNumberScreen(theme.screens.descktopXL), itemsToShow: 6 },
   ];
   return (
-    <WrapperListSlide
-      breakPoints={breakPoints}
-      onResize={(currentBreakPoint) => null}
-    >
+    <WrapperListSlide breakPoints={breakPoints}>
       <Link href="/">
         <a>
           <CategoryImage>

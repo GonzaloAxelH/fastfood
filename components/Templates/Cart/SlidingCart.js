@@ -104,26 +104,26 @@ const cartTemp = {
       customOptions: {
         negativeAddons: [
           {
-            option: "No Chesse",
-            ammount: -1,
+            name: "No Chesse",
+            price: -1,
           },
           {
-            option: "Extra Cheddar",
-            ammount: 1,
+            name: "Extra Cheddar",
+            price: 1,
           },
           {
-            option: "Extra Cheddar",
-            ammount: 1,
+            name: "Extra Cheddar",
+            price: 1,
           },
         ],
         extraToppings: [
           {
-            option: "Fried Onion ",
-            ammount: 0.5,
+            name: "Fried Onion ",
+            price: 0.5,
           },
           {
-            option: "Fried Onion ",
-            ammount: 0.7,
+            name: "Fried Onion ",
+            price: 0.7,
           },
         ],
       },
@@ -179,26 +179,26 @@ const cartTemp = {
       customOptions: {
         negativeAddons: [
           {
-            option: "No Chesse",
-            ammount: -1,
+            name: "No Chesse",
+            price: -1,
           },
           {
-            option: "Extra Cheddar",
-            ammount: 1,
+            name: "Extra Cheddar",
+            price: 1,
           },
           {
-            option: "Extra Cheddar",
-            ammount: 1,
+            name: "Extra Cheddar",
+            price: 1,
           },
         ],
         extraToppings: [
           {
-            option: "Fried Onion ",
-            ammount: 0.5,
+            name: "Fried Onion ",
+            price: 0.5,
           },
           {
-            option: "Fried Onion ",
-            ammount: 0.7,
+            name: "Fried Onion ",
+            price: 0.7,
           },
         ],
       },

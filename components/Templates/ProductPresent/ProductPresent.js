@@ -14,13 +14,23 @@ let product = {
     "Smoked brisket, tender ribs, smoked sausage, bacon & cheddar with lettuce, tomato, house BBQ & ranch.",
 };
 const WrapperProductPresent = styled.div`
+  position: sticky;
   display: flex;
   width: 100%;
 `;
 const ImageWrapper = styled.div``;
-const InfoFeacturesProduct = styled.div``;
+const InfoFeacturesProduct = styled.div`
+  margin: auto;
+  padding: 0 2em;
+`;
+const TitleProduct = styled.h2`
+  margin: 0;
+  font-size: 2.2em;
+  color: #22272d;
+  font-family: "Rubik 700";
+`;
 const ImagesProductPreview = styled.div``;
-const FormularioOrderCart = styled.div``;
+
 export default function ProductPresent() {
   return (
     <WrapperProductPresent>
@@ -29,17 +39,15 @@ export default function ProductPresent() {
           <Image
             src={product.imageUrl}
             alt={product.name}
-            width={700}
-            height={700}
+            width={900}
+            height={900}
             layout="intrinsic"
             objectFit="contain"
           />
         </ImageWrapper>
       </ImagesProductPreview>
       <InfoFeacturesProduct>
-        <Title size="2.2em" bold color="#22272d">
-          {product.name}
-        </Title>
+        <TitleProduct>{product.name}</TitleProduct>
         <P size="15px" color="#666666">
           {product.description}
         </P>

@@ -10,7 +10,7 @@ const Button = styled.button`
   text-transform: uppercase;
   font-family: "Rubik 700";
   border: none;
-  padding: 1.1em 1.25em;
+  padding: 1em 1.25em;
   border-radius: 2em;
   -moz-box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.12) !important;
   -webkit-box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.12) !important;

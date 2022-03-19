@@ -4,5 +4,5 @@ import styled from "styled-components";
 
 const WrapperNutritionSummary = styled.div``;
 export default function NutritionSummary() {
-  return <WrapperNutritionSummary>NutritionSummary</WrapperNutritionSummary>;
+  return <WrapperNutritionSummary></WrapperNutritionSummary>;
 }
