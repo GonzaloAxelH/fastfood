@@ -45,7 +45,7 @@ export const BaseStylesInput = css`
     -ms-user-select: none;
     cursor: pointer;
     background-color: #f1f1f1;
-    padding: 0.7em 0.6em;
+    padding: 0.6em 0.5em;
     border-radius: 5px;
   }
   .inputs-radios,
@@ -64,9 +64,8 @@ export const FoodCrust = styled.div`
   ${BaseStylesInput};
 
   padding: 25px;
-  .option-radio,
-  .option-checkbox {
-    padding: 0 0.6em;
+  .option-radio {
+    padding: 0em 0.4em;
   }
 `;
 function InpusCrust({ crust, getCrust }) {
@@ -123,7 +122,7 @@ const RadiusInput = ({ checked, setchecked, cr }) => {
 const Text = ({ setchecked, cr, children }) => {
   return (
     <div
-      style={{ width: "100%", height: "100%", padding: "1em" }}
+      style={{ width: "100%", height: "100%", padding: "0.8em" }}
       onClick={() => setchecked(cr)}
     >
       {children}

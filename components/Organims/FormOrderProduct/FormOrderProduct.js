@@ -5,7 +5,9 @@ import InputExtraToppings from "../../Molecules/Inputs/InputExtraToppings";
 import InpusCrust from "../../Molecules/Inputs/InpusCrust";
 import InputSize from "../../Molecules/Inputs/InputSize";
 import InputQuantity from "../../Molecules/Inputs/InputQuantity";
+import usePriceFormat from "../../../Hooks/usePriceFormat";
 const WrapperForm = styled.div``;
+
 const Price = styled.div`
   padding: 0.5em 0 0 0;
   background-color: #fff;
@@ -18,7 +20,6 @@ const Price = styled.div`
   }
   sup {
     font-size: 20px;
-    margin-left: -6px;
   }
 `;
 const FormBottom = styled.div`
@@ -34,45 +35,60 @@ export const product = {
     { medida: "12", price: 0 },
     {
       medida: "15",
-      price: 4,
+      price: 0,
     },
-    { medida: "18", price: 8 },
+    { medida: "18", price: 0 },
   ],
-  unitPrice: 14,
-  stock: 10,
+  price: 8.99,
+  stock: 1000,
   crusts: [
     { name: "Thin Crust", price: 0 },
-    { name: "Stuffed Crust", price: 0.4 },
-    { name: "Deep Dish", price: 0.5 },
+    { name: "Stuffed Crust", price: 0 },
+    { name: "Deep Dish", price: 0 },
   ],
   extras: [
-    { name: "Chesse", price: 0.5 },
-    { name: "Pepperoni", price: 0.5 },
+    { name: "Chesse", price: 1 },
+    { name: "Pepperoni", price: 1 },
     { name: "Sausage", price: 0.5 },
     { name: "Mushrooms", price: 0.5 },
-    { name: "Onions", price: 0.5 },
-    { name: "Green Peppers", price: 0.5 },
+    { name: "Onions", price: 0.6 },
+    { name: "Green Peppers", price: 0.4 },
+    { name: "Other ", price: 0.2 },
+    { name: "Potatos", price: 1.5 },
   ],
 };
 
 export default function FormOrderProduct() {
-  const [totalPrice, setTotalPrice] = useState(product.unitPrice);
-  const [productOrder, setProductOrder] = useState({});
+  //totals
+  const [priceOptions, setPriceOptions] = useState(0);
+  const [subTotal, setSubTotal] = useState(0);
+
+  const [priceOptionAndPriceUnit, setPriceOptionAndPriceUnit] = useState(0);
+  // options state
   const [sizeOrder, setSizeOrder] = useState(product.sizes[0]);
   const [crustOrder, setCrustOrder] = useState(product.crusts[0]);
   const [extraToppingsOrder, setExtraToppingsOrder] = useState([]);
   const [quantityOrder, setQuantityOrder] = useState(1);
-  const calculateTotalPrice = () => {
-    const total =
+
+  //hook para formatear el precio
+  const priceUnitFormat = usePriceFormat(product.price);
+  const priceOptionsFormat = usePriceFormat(priceOptions);
+  const subTotalFormat = usePriceFormat(subTotal);
+  const priceOptionAndPriceUnitFormat = usePriceFormat(priceOptionAndPriceUnit);
+  useEffect(() => {
+    const optionsfixed =
       sizeOrder.price +
       crustOrder.price +
-      product.unitPrice +
-      extraToppingsOrder.reduce((acc, item) => acc + item.price, 0);
-    setTotalPrice(total);
-  };
-  useEffect(() => {
-    calculateTotalPrice();
+      extraToppingsOrder.reduce((acc, item) => acc + item.price, 0).toFixed(2);
+    let uno = 1;
+    setPriceOptionAndPriceUnit(product.price + optionsfixed * uno.toFixed(2));
+    setPriceOptions(optionsfixed);
+
+    const subtotalfixed =
+      product.price + optionsfixed * quantityOrder.toFixed(2);
+    setSubTotal(subtotalfixed);
   });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log({
@@ -80,14 +96,16 @@ export default function FormOrderProduct() {
       crust: crustOrder,
       extraToppings: extraToppingsOrder,
       quantity: quantityOrder,
-      totalPrice: totalPrice * quantityOrder,
+      optionsPrice: priceOptions,
+      subtotal: subTotal,
     });
   };
   return (
     <WrapperForm onSubmit={handleSubmit}>
       <form>
         <Price>
-          {totalPrice * quantityOrder} <sup>.99</sup>
+          {priceUnitFormat.intPrice}
+          <sup>.{priceUnitFormat.decimalPrice}</sup>
         </Price>
         <InputSize size={sizeOrder} getSize={(si) => setSizeOrder(si)} />
         <InpusCrust crust={crustOrder} getCrust={(cr) => setCrustOrder(cr)} />
@@ -104,6 +122,57 @@ export default function FormOrderProduct() {
             }
           }}
         />
+        <AllPricesOrder>
+          {priceOptionsFormat !== 0 && (
+            <div>
+              <p>
+                Options C/U :
+                <span>
+                  {priceOptionsFormat.intPrice}
+                  <sup>
+                    .
+                    {priceOptionsFormat === 0
+                      ? "00"
+                      : priceOptionsFormat.decimalPrice}
+                  </sup>
+                </span>
+              </p>
+            </div>
+          )}
+          <div>
+            <p>
+              Unit Original C/U:
+              <span>
+                {priceUnitFormat.intPrice}
+                <sup>.{priceUnitFormat.decimalPrice}</sup>
+              </span>
+            </p>
+          </div>
+
+          <hr />
+          <div>
+            <p>
+              Price C/U + options:
+              <span>
+                {priceOptionAndPriceUnitFormat.intPrice}
+                <sup>.{priceOptionAndPriceUnitFormat.decimalPrice}</sup>
+              </span>
+            </p>
+          </div>
+          <hr />
+          <div>
+            <p>
+              Sub Total:
+              <span>
+                {subTotalFormat.intPrice}
+                <sup>
+                  .{subTotalFormat === 0 ? "00" : subTotalFormat.decimalPrice}
+                </sup>
+              </span>
+            </p>
+          </div>
+        </AllPricesOrder>
+
         <FormBottom>
           <InputQuantity
             quantity={quantityOrder}
@@ -118,3 +187,36 @@ export default function FormOrderProduct() {
     </WrapperForm>
   );
 }
+
+const AllPricesOrder = styled.div`
+  width: 100%;
+  padding: 25px;
+  border: 2px solid #f1f1f1;
+  border-radius: 8px;
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  p {
+    color: #666666;
+    margin: 0;
+    padding-bottom: 0.7em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    width: 100%;
+    font-size: 14px;
+    font-family: "Rubik 500";
+  }
+  span {
+    color: #333;
+    font-size: 16px;
+    font-family: "Rubik 700";
+    text-align: center;
+    justify-self: flex-start;
+  }
+
+  span:before {
+    content: "$";
+    font-size: 11px;
+  }
+`;
