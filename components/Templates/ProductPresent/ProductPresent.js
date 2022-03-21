@@ -15,8 +15,14 @@ let product = {
 };
 const WrapperProductPresent = styled.div`
   position: sticky;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   width: 100%;
+  padding: 20px 80px 80px 80px;
+  @media (max-width: ${(props) => props.theme.screens.tabletXL}) {
+    grid-template-columns: 1fr;
+    padding: 0em;
+  }
 `;
 const ImageWrapper = styled.div``;
 const InfoFeacturesProduct = styled.div`
@@ -29,7 +35,9 @@ const TitleProduct = styled.h2`
   color: #22272d;
   font-family: "Rubik 700";
 `;
-const ImagesProductPreview = styled.div``;
+const ImagesProductPreview = styled.div`
+  padding: 2em;
+`;
 
 export default function ProductPresent() {
   return (

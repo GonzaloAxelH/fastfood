@@ -88,7 +88,7 @@ function ItemFoodCart({ itemFood, closeSlidingCart }) {
   return (
     <ItemFoodCartContainer>
       <div onClick={closeSlidingCart}>
-        <Link href="/ss">
+        <Link href={`/fastfood/product/${name}`}>
           <a>
             <ImageProduct>
               <Image src={img} alt={name} width={60} height={60} />

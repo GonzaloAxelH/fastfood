@@ -8,6 +8,10 @@ const WrapperNavTop = styled.div`
   background-color: #222222;
   display: flex;
   justify-content: space-around;
+
+  @media (max-width: ${(props) => props.theme.screens.tabletL}) {
+    height: 40px;
+  }
 `;
 const Left = styled.div`
   display: flex;

@@ -30,7 +30,7 @@ export default function BtnPrimary(props) {
   const { label } = props;
   const router = useRouter();
   return (
-    <Button onClick={() => router.push("/")}>
+    <Button onClick={() => router.push("/fastfood")}>
       {label ? label : props.children}
     </Button>
   );

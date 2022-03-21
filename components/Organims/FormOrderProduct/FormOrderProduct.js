@@ -62,7 +62,6 @@ export default function FormOrderProduct() {
   //totals
   const [priceOptions, setPriceOptions] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
-
   const [priceOptionAndPriceUnit, setPriceOptionAndPriceUnit] = useState(0);
   // options state
   const [sizeOrder, setSizeOrder] = useState(product.sizes[0]);
@@ -74,6 +73,7 @@ export default function FormOrderProduct() {
   const priceUnitFormat = usePriceFormat(product.price);
   const priceOptionsFormat = usePriceFormat(priceOptions);
   const subTotalFormat = usePriceFormat(subTotal);
+
   const priceOptionAndPriceUnitFormat = usePriceFormat(priceOptionAndPriceUnit);
   useEffect(() => {
     const optionsfixed =
@@ -84,8 +84,7 @@ export default function FormOrderProduct() {
     setPriceOptionAndPriceUnit(product.price + optionsfixed * uno.toFixed(2));
     setPriceOptions(optionsfixed);
 
-    const subtotalfixed =
-      product.price + optionsfixed * quantityOrder.toFixed(2);
+    const subtotalfixed = priceOptionAndPriceUnit * quantityOrder.toFixed(2);
     setSubTotal(subtotalfixed);
   });
 
@@ -189,13 +188,19 @@ export default function FormOrderProduct() {
 }
 
 const AllPricesOrder = styled.div`
+  background-color: #fafafafa;
   width: 100%;
-  padding: 25px;
+  padding: 20px 25px;
   border: 2px solid #f1f1f1;
   border-radius: 8px;
   position: relative;
   margin-bottom: 20px;
   width: 100%;
+  hr {
+    background-color: #f0f0f0;
+    height: 1px;
+    border: 0;
+  }
   p {
     color: #666666;
     margin: 0;

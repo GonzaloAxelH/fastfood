@@ -108,7 +108,7 @@ export default function ItemFoodGrid(props) {
         <BtnFavorite>
           <BiHeart />
         </BtnFavorite>
-        <Link href="/">
+        <Link href={`/fastfood/product/${name}`}>
           <a>
             <Image
               src={`/images/Food/${imageLocal}`}
@@ -123,7 +123,7 @@ export default function ItemFoodGrid(props) {
       </ImageWrapper>
 
       <FoodInfo>
-        <Link href="/">
+        <Link href={`/fastfood/product/${name}`}>
           <a>
             <p>{name}</p>
           </a>

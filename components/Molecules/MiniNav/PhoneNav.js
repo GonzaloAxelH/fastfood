@@ -35,8 +35,14 @@ const PhoneWrapper = styled.div`
     padding: 11px;
     position: absolute;
     left: 1em;
-    top: 7em;
+    top: 4.6em;
     z-index: 9999;
+
+    background-color: #a1ba32;
+    svg {
+      fill: #fff;
+      color: #fff;
+    }
     p {
       display: none;
     }

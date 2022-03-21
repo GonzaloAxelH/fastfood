@@ -76,6 +76,9 @@ const cards = [
 
 const WrapperFooter = styled.footer`
   background-color: #2a2a2a;
+  position: relative;
+  /* para esconder la coma  inexpicable al final */
+  bottom: -1.1em;
 `;
 const FooterTop = styled.div`
   display: flex;

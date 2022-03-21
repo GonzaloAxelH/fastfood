@@ -25,7 +25,7 @@ export default function Btn({ label, submit, to, ...props }) {
   return (
     <Button
       type={submit ? "submit" : "button"}
-      onClick={() => (submit ? null : router.push(to ? to : "/"))}
+      onClick={() => (submit ? null : router.push(to ? to : "/fastfood"))}
     >
       {label ? label : props.children}
     </Button>

@@ -7,7 +7,7 @@ export default function Logo({ offset }) {
     <WrapperLogo offset={offset}>
       <Box offset={offset}>
         <BoxBefore offset={offset} />
-        <Link href="/">
+        <Link href="/fastfood">
           <a>
             <div className="img">
               <Image

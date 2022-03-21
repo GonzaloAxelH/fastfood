@@ -120,7 +120,7 @@ export default function ListCategorySlide() {
   ];
   return (
     <WrapperListSlide breakPoints={breakPoints}>
-      <Link href="/">
+      <Link href="/fastfood">
         <a>
           <CategoryImage>
             <Image
@@ -132,7 +132,7 @@ export default function ListCategorySlide() {
           <p>BURGERS</p>
         </a>
       </Link>
-      <Link href="/">
+      <Link href="/fastfood">
         <a>
           <CategoryImage>
             <Image
@@ -144,7 +144,7 @@ export default function ListCategorySlide() {
           <p>PIZZA</p>
         </a>
       </Link>
-      <Link href="/">
+      <Link href="/fastfood">
         <a>
           <CategoryImage>
             <Image
@@ -156,7 +156,7 @@ export default function ListCategorySlide() {
           <p>SANDWICHES</p>
         </a>
       </Link>
-      <Link href="/">
+      <Link href="/fastfood">
         <a>
           <CategoryImage>
             <Image
@@ -168,7 +168,7 @@ export default function ListCategorySlide() {
           <p>SIDES</p>
         </a>
       </Link>
-      <Link href="/">
+      <Link href="/fastfood">
         <a>
           <CategoryImage>
             <Image
@@ -180,7 +180,7 @@ export default function ListCategorySlide() {
           <p>DESSERTS</p>
         </a>
       </Link>
-      <Link href="/">
+      <Link href="/fastfood">
         <a>
           <CategoryImage>
             <Image

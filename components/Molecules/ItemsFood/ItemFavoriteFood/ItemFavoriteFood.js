@@ -57,7 +57,7 @@ function ItemFavoriteFood({ item }) {
 
   return (
     <ItemFoodContainer>
-      <Link href="">
+      <Link href={`/fastfood/product/${name}`}>
         <a className="image-wrapper">
           <Image src={img} alt={name} objectFit="contain" layout="fill" />
         </a>
@@ -68,7 +68,7 @@ function ItemFavoriteFood({ item }) {
             {price} <sup>.00</sup>
           </span>
         </p>
-        <Link href="">
+        <Link href={`/fastfood/product/${name}`}>
           <a className="name">{name}</a>
         </Link>
       </div>

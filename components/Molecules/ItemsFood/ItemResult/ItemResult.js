@@ -43,7 +43,7 @@ export default function ItemResult({ item }) {
 
   const { idProduct, img, description, name } = item;
   return (
-    <Link href={`/product/${convertNameURL(name)}`}>
+    <Link href={`fastfood/product/${convertNameURL(name)}`}>
       <a>
         <WrapperItem>
           <div className="image-wrapper">

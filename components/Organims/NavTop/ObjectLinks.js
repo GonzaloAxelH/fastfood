@@ -1,7 +1,7 @@
 let Links = {
   linksListHome: [
     {
-      link: "/",
+      link: "/fastfood",
       name: "Home",
     },
     {
@@ -15,7 +15,7 @@ let Links = {
   ],
   linksListBlog: [
     {
-      link: "/",
+      link: "/fastfood",
       name: "Home",
     },
     {
@@ -25,7 +25,7 @@ let Links = {
   ],
   linksListAbout: [
     {
-      link: "/",
+      link: "/fastfood",
       name: "Home",
     },
     {
@@ -33,7 +33,7 @@ let Links = {
       name: "About",
     },
     {
-      link: "/",
+      link: "/fastfood",
       name: "Home",
     },
     {
@@ -41,7 +41,7 @@ let Links = {
       name: "About",
     },
     {
-      link: "/",
+      link: "/fastfood",
       name: "Home",
     },
     {

@@ -1,6 +1,6 @@
 const nextConfig = {
   images: {
-    domains: ["lafka.althemist.com"],
+    domains: ["lafka.althemist.com", "secure.gravatar.com"],
   },
 };
 
