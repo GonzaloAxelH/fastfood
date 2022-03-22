@@ -8,12 +8,12 @@ import Image from "next/image";
 
 import Link from "next/link";
 const ItemFoodWrapper = styled.div`
-  padding: 1em 0;
+  padding: 20px;
   justify-self: center;
   display: flex;
   background-size: contain;
   flex-direction: column;
-  max-width: 284px;
+
   .btn-order {
     margin: auto;
   }
@@ -42,8 +42,7 @@ const ImageWrapper = styled.div`
   border-radius: 8px;
   border: 1px solid #e5e5e5;
   position: relative;
-  width: 300px;
-  height: 300px;
+
   overflow: hidden;
 
   img {

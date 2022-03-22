@@ -4,6 +4,8 @@ import Layout from "../../../Layouts/Layout";
 import styled from "styled-components";
 import ProductPresent from "../../../components/Templates/ProductPresent/ProductPresent";
 import ProductReviews from "../../../components/Templates/ProductReviews/ProductReviews";
+import YouMayAlsoLike from "../../../components/Templates/YouMayAlsoLike/YouMayAlsoLike";
+import OtherProducts from "../../../components/Templates/OtherProducts/OtherProducts";
 const WrapperPage = styled.div`
   padding: 300px 0 0 0;
 
@@ -27,8 +29,12 @@ function SingleProduct() {
         <section>
           <ProductReviews />
         </section>
-        <section>{/* Other diferent products interesed*/}</section>
-        <section>{/* Otros Products de la misma categoria */}</section>
+        <section>
+          <YouMayAlsoLike />
+        </section>
+        <section>
+          <OtherProducts />
+        </section>
       </WrapperPage>
     </Layout>
   );
