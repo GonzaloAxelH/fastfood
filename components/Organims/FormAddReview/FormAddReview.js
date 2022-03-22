@@ -69,7 +69,7 @@ export default function FormAddReview() {
             color2={"#ffd700"}
           />
 
-          <span className="raiting">{`${raiting}/5`}</span>
+          <span className="raiting star">{`${raiting}/5`}</span>
         </div>
 
         <p>YOU REVIEW</p>
