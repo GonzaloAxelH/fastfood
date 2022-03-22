@@ -30,7 +30,7 @@ const MiniNavWrapper = styled.div`
     padding: 11px;
     position: absolute;
     right: 1em;
-    bottom: -27em;
+    bottom: -35em;
   }
 `;
 import { FullContext } from "../../../pages/_app";

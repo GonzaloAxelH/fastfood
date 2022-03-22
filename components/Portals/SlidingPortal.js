@@ -7,39 +7,52 @@ import Portal from "./Portal";
 const PortalWrapperAbsolute = styled.div`
   position: fixed;
   top: 0;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  padding: 0 20px 40px;
   background-color: #fff;
+  /*
+   background-color: rgb(255, 255, 255, 0.9);
+  --webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+
+  */
   transform: translateY(${(props) => (props.isOpen ? "0" : "-100%")});
   -webkit-transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
   transition: all 0.6s cubic-bezier(0.77, 0, 0.175, 1);
-  z-index: 21000;
   overflow: hidden;
-  .button-close2 {
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    top: 0;
-    svg {
-      fill: #a3a3a3;
-      color: #a3a3a3;
-      font-weight: 300;
+  z-index: 21000;
+`;
 
-      width: 40px;
-      height: 40px;
-    }
-    padding: 1em;
+const ButtonClose = styled.div`
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 0;
+  svg {
+    fill: #a3a3a3;
+    color: #a3a3a3;
+    font-weight: 300;
+
+    width: 40px;
+    height: 40px;
   }
+  padding: 1em;
+  z-index: 2;
 `;
 
 const PortalSlidingContainer = ({ isOpen, setIsOpen, children }) => {
+  useEffect(() => {
+    const body = document.getElementById("body");
+    setTimeout(() => {
+      body.style.overflowY = isOpen ? "hidden" : "auto";
+    }, 250);
+  }, [isOpen]);
   return (
     <Portal>
       <PortalWrapperAbsolute isOpen={isOpen}>
-        <div className="button-close2" onClick={() => setIsOpen(false)}>
+        <ButtonClose onClick={() => setIsOpen(false)}>
           <VscChromeClose />
-        </div>
+        </ButtonClose>
         {children}
       </PortalWrapperAbsolute>
     </Portal>

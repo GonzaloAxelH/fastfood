@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import ItemFoodCart from "../../Molecules/ItemsFood/ItemFoodCart/ItemFoodCart";
 const CartWrapper = styled.div`
   margin: auto;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   height: 100%;

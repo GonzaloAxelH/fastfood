@@ -22,11 +22,11 @@ const Button = styled.button`
 `;
 export default function Btn({ label, submit, to, ...props }) {
   const router = useRouter();
+  const redirect = () => {
+    submit ? null : router.push(to ? to : "/fastfood");
+  };
   return (
-    <Button
-      type={submit ? "submit" : "button"}
-      onClick={() => (submit ? null : router.push(to ? to : "/fastfood"))}
-    >
+    <Button type={submit ? "submit" : "button"} {...props}>
       {label ? label : props.children}
     </Button>
   );

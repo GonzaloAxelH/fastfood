@@ -6,10 +6,15 @@ import InpusCrust from "../../Molecules/Inputs/InpusCrust";
 import InputSize from "../../Molecules/Inputs/InputSize";
 import InputQuantity from "../../Molecules/Inputs/InputQuantity";
 import usePriceFormat from "../../../Hooks/usePriceFormat";
+
+import { BallBeat } from "react-pure-loaders";
+import { FullContext } from "../../../pages/_app";
+
 const WrapperForm = styled.div``;
 
 const Price = styled.div`
   padding: 0.5em 0 0 0;
+
   background-color: #fff;
   border-radius: 12px;
   font-size: 30px;
@@ -59,6 +64,10 @@ export const product = {
 };
 
 export default function FormOrderProduct() {
+  //loads
+  const [load, setLoad] = useState(false);
+  //context
+  const { setOpenCart, setOpenOrderProduct } = React.useContext(FullContext);
   //totals
   const [priceOptions, setPriceOptions] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
@@ -75,6 +84,7 @@ export default function FormOrderProduct() {
   const subTotalFormat = usePriceFormat(subTotal);
 
   const priceOptionAndPriceUnitFormat = usePriceFormat(priceOptionAndPriceUnit);
+
   useEffect(() => {
     const optionsfixed =
       sizeOrder.price +
@@ -180,7 +190,26 @@ export default function FormOrderProduct() {
             }}
             limit={product.stock}
           />
-          <ButtonOrder label="Order" type="default" submit={true} />
+          <ButtonOrder
+            type="default"
+            submit={true}
+            onClick={() => {
+              setLoad(true);
+              setOpenOrderProduct(false);
+              setTimeout(() => {
+                setLoad(false);
+                setOpenCart(true);
+              }, 1000);
+
+              setTimeout(() => {
+                setOpenCart(false);
+              }, 5000);
+            }}
+          >
+            <span style={{ display: load ? "none" : "block" }}>Order Now</span>
+
+            {load && <BallBeat color="#ffca3c" loading />}
+          </ButtonOrder>
         </FormBottom>
       </form>
     </WrapperForm>

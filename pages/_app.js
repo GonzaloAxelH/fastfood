@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
   const [openSearching, setOpenSearching] = useState(false);
   const [openPerfil, setOpenPerfil] = useState(false);
 
+  const [openOrderProduct, setOpenOrderProduct] = useState(false);
   const allContextValues = {
     openCart,
     setOpenCart,
@@ -22,6 +23,8 @@ function MyApp({ Component, pageProps }) {
     setOpenSearching,
     openPerfil,
     setOpenPerfil,
+    openOrderProduct,
+    setOpenOrderProduct,
   };
   return (
     <FullContext.Provider value={allContextValues}>

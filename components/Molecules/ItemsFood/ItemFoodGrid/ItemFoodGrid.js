@@ -5,7 +5,6 @@ import { BiHeart } from "react-icons/bi";
 import { useState } from "react";
 import { BallBeat } from "react-pure-loaders";
 import Image from "next/image";
-import { FullContext } from "../../../../pages/_app";
 
 import Link from "next/link";
 const ItemFoodWrapper = styled.div`
@@ -94,9 +93,9 @@ const BtnFavorite = styled.div`
     fill: #333;
   }
 `;
-
+import { FullContext } from "../../../../pages/_app";
 export default function ItemFoodGrid(props) {
-  const { setOpenCart } = React.useContext(FullContext);
+  const { setOpenOrderProduct } = React.useContext(FullContext);
 
   const [load, setLoad] = useState(false);
   const { name, price, imageLocal, description } = props.burger;
@@ -140,16 +139,12 @@ export default function ItemFoodGrid(props) {
       <div className="btn-order">
         <ButtonOrder
           type="order"
-          onClick={async () => {
+          onClick={() => {
             setLoad(true);
             setTimeout(() => {
-              setOpenCart(true);
               setLoad(false);
+              setOpenOrderProduct(true);
             }, 1000);
-
-            setTimeout(() => {
-              setOpenCart(false);
-            }, 5000);
           }}
         >
           <span style={{ display: load ? "none" : "block" }}>Order Now</span>

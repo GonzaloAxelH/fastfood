@@ -14,7 +14,6 @@ let product = {
     "Smoked brisket, tender ribs, smoked sausage, bacon & cheddar with lettuce, tomato, house BBQ & ranch.",
 };
 const WrapperProductPresent = styled.div`
-  position: sticky;
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;

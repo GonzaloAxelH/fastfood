@@ -22,6 +22,7 @@ const PageContainer = styled.main`
   min-height: 100vh;
 `;
 import { FullContext } from "../pages/_app";
+import JustProductOrder from "../components/Templates/JustProductOrder/JustProductOrder";
 
 export default function Layout({ children }) {
   const { cart, setCart } = useContext(FullContext);
@@ -33,6 +34,7 @@ export default function Layout({ children }) {
       <SlidingCart />
       <SlidingFavorite />
       <SlidingSearch />
+      <JustProductOrder />
       <NavMobile
         menuIsOpen={menuIsOpen}
         closeSlidingMenu={() => menuUserIsOpen(false)}
