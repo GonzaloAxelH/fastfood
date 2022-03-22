@@ -96,10 +96,11 @@ const tempResults = [
       "Smoked brisket, tender ribs, smoked sausage, bacon & cheddar with lettuce",
   },
 ];
-
-function SlidingSearch({ searchIsOpen, closeSlidingSearch }) {
+import { FullContext } from "../../../pages/_app";
+function SlidingSearch() {
+  const { openSearching, setOpenSearching } = React.useContext(FullContext);
   return (
-    <SlidingPortal isOpen={searchIsOpen} handleClose={closeSlidingSearch}>
+    <SlidingPortal isOpen={openSearching} setIsOpen={setOpenSearching}>
       <WrapperSearch>
         <FormSearch>
           <input type="text" placeholder="Search Products" />

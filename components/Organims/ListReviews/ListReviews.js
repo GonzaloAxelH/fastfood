@@ -64,20 +64,6 @@ const tempReviews = [
       name: "Big Brekkie BBQ Burger",
     },
   },
-  {
-    user: {
-      name: "Althemist",
-      imgUser:
-        "https://secure.gravatar.com/avatar/6a459c02734d98bdfe3d91ca463d9cd4?s=60&d=mm&r=g",
-    },
-    rainting: 5,
-    description:
-      "The Lafka is, in fact, the burger king when it comes to offering the best food of its kind in Melbourne.",
-    date: "Mar 20, 2022",
-    product: {
-      name: "Big Brekkie BBQ Burger",
-    },
-  },
 ];
 
 export default function ListReviews() {

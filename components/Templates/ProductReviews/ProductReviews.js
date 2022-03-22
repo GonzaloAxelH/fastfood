@@ -69,14 +69,14 @@ const Option = styled.span`
   }
 `;
 export default function ProductReviews() {
-  const [toggleSelect, setToggleSelect] = useState(1);
+  const [toggleSelect, setToggleSelect] = useState(2);
   return (
     <WrapperProductReviews>
       <SelectDescriptionReviews>
-        <Option isSelect={toggleSelect == 1} onClick={() => setToggleSelect(1)}>
+        <Option isSelect={toggleSelect == 2} onClick={() => setToggleSelect(2)}>
           Description
         </Option>
-        <Option isSelect={toggleSelect == 2} onClick={() => setToggleSelect(2)}>
+        <Option isSelect={toggleSelect == 1} onClick={() => setToggleSelect(1)}>
           Reviews (1)
         </Option>
       </SelectDescriptionReviews>

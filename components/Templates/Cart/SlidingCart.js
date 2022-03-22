@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import SlidingPortal from "../../Portals/SlidingPortal";
 import Button from "../../Atoms/Buttons/Button";
@@ -205,20 +205,15 @@ const cartTemp = {
     },
   ],
 };
-
-function SlidingCart({ cartIsOpen, closeSlidingCart }) {
+import { FullContext } from "../../../pages/_app";
+function SlidingCart() {
+  const { openCart, setOpenCart } = useContext(FullContext);
   return (
-    <SlidingPortal isOpen={cartIsOpen} handleClose={closeSlidingCart}>
+    <SlidingPortal isOpen={openCart} setIsOpen={setOpenCart}>
       <CartWrapper>
         <CartContent>
           {cartTemp.items.map((item) => {
-            return (
-              <ItemFoodCart
-                closeSlidingCart={closeSlidingCart}
-                key={item.idProduct}
-                itemFood={item}
-              />
-            );
+            return <ItemFoodCart key={item.idProduct} itemFood={item} />;
           })}
         </CartContent>
         <CartAmmount>

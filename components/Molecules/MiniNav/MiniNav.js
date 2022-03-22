@@ -33,31 +33,32 @@ const MiniNavWrapper = styled.div`
     bottom: -27em;
   }
 `;
+import { FullContext } from "../../../pages/_app";
+export default function MiniNav() {
+  const { setOpenPerfil, setOpenCart, setOpenFavorites, setOpenSearching } =
+    React.useContext(FullContext);
 
-export default function MiniNav({
-  openSlidingCart,
-  openSlidingFavorite,
-  openSlidingUser,
-  openSlidingSearch,
-  openMenu,
-}) {
   return (
     <MiniNavWrapper>
-      <Item type="account" onClick={openSlidingUser} Icon={FiUser} />
+      <Item type="account" onClick={() => setOpenPerfil(true)} Icon={FiUser} />
       <Item
         type="favorite"
-        onClick={openSlidingFavorite}
+        onClick={() => setOpenFavorites(true)}
         Icon={FiHeart}
         number={2}
       />
 
       <Item
         type="cart"
-        onClick={openSlidingCart}
+        onClick={() => setOpenCart(true)}
         Icon={FiShoppingBag}
         number={1}
       />
-      <Item type="search" onClick={openSlidingSearch} Icon={FiSearch} />
+      <Item
+        type="search"
+        onClick={() => setOpenSearching(true)}
+        Icon={FiSearch}
+      />
     </MiniNavWrapper>
   );
 }

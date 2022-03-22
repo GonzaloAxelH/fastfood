@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "next/image";
-
+import Link from "next/link";
 import ReactStars from "react-stars";
 const WrapperItem = styled.div`
   position: relative;
@@ -18,7 +18,11 @@ const WrapperItem = styled.div`
   p {
     font-family: "Rubik 500";
     font-size: 13px;
+    margin: 0;
+  }
+  a:nth-child(2) {
     margin: 2em 0;
+    color: #333;
   }
 `;
 
@@ -38,20 +42,32 @@ export default function ItemFoodSimple({ product }) {
   const { name, imageLocal, stars } = product;
   return (
     <WrapperItem>
-      <ImageWrapper>
-        <div className="stars-right">
-          <ReactStars
-            value={parseFloat(stars)}
-            onChange={() => console.log("sd")}
-            size={16}
-            edit={false}
-            color2={"#ffd700"}
-          />
-        </div>
+      <Link href={`/fastfood/product/${name}`}>
+        <a>
+          <ImageWrapper>
+            <div className="stars-right">
+              <ReactStars
+                value={parseFloat(stars)}
+                onChange={() => console.log("sd")}
+                size={16}
+                edit={false}
+                color2={"#ffd700"}
+              />
+            </div>
+            <Image
+              src={`/images/Food/${imageLocal}`}
+              layout="fill"
+              alt={name}
+            />
+          </ImageWrapper>
+        </a>
+      </Link>
 
-        <Image src={`/images/Food/${imageLocal}`} layout="fill" alt={name} />
-      </ImageWrapper>
-      <p>{name}</p>
+      <Link href={`/fastfood/product/${name}`}>
+        <a>
+          <p>{name}</p>
+        </a>
+      </Link>
     </WrapperItem>
   );
 }

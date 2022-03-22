@@ -82,12 +82,12 @@ const AllFoodOptions = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
 `;
-function ItemFoodCart({ itemFood, closeSlidingCart }) {
+function ItemFoodCart({ itemFood }) {
   const { name, priceUnit, img, quantity, customOptions, feactures } = itemFood;
 
   return (
     <ItemFoodCartContainer>
-      <div onClick={closeSlidingCart}>
+      <div>
         <Link href={`/fastfood/product/${name}`}>
           <a>
             <ImageProduct>
@@ -98,8 +98,8 @@ function ItemFoodCart({ itemFood, closeSlidingCart }) {
       </div>
 
       <InfoProduct>
-        <div onClick={closeSlidingCart}>
-          <Link href="/" onClick={closeSlidingCart}>
+        <div>
+          <Link href="/">
             <a>
               <p className="name-product">{name}</p>
             </a>

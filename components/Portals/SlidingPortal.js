@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { RiCloseFill } from "react-icons/ri";
 
@@ -33,11 +33,11 @@ const PortalWrapperAbsolute = styled.div`
   }
 `;
 
-const PortalSlidingContainer = ({ isOpen, handleClose, children }) => {
+const PortalSlidingContainer = ({ isOpen, setIsOpen, children }) => {
   return (
     <Portal>
       <PortalWrapperAbsolute isOpen={isOpen}>
-        <div className="button-close2" onClick={handleClose}>
+        <div className="button-close2" onClick={() => setIsOpen(false)}>
           <VscChromeClose />
         </div>
         {children}

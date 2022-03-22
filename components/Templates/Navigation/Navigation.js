@@ -23,14 +23,7 @@ const WrapperMiniNavs = styled.div`
   transition: 0.2s all;
 `;
 
-export default function Navigation({
-  scrollOffset,
-  openSlidingCart,
-  openSlidingFavorite,
-  openSlidingUser,
-  openSlidingSearch,
-  openMenu,
-}) {
+export default function Navigation({ scrollOffset, openMenu }) {
   return (
     <NavigationWrapperFixed offset={scrollOffset}>
       <NavTop offset={scrollOffset} openMenu={openMenu} />
@@ -40,13 +33,7 @@ export default function Navigation({
           <FiMenu />
         </ButtonMenu>
 
-        <MiniNav
-          openMenu={openMenu}
-          openSlidingCart={openSlidingCart}
-          openSlidingFavorite={openSlidingFavorite}
-          openSlidingUser={openSlidingUser}
-          openSlidingSearch={openSlidingSearch}
-        />
+        <MiniNav openMenu={openMenu} />
       </WrapperMiniNavs>
     </NavigationWrapperFixed>
   );

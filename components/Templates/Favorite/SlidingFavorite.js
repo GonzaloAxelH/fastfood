@@ -88,9 +88,11 @@ const WrapperFavorites = styled.div`
     border-radius: 10px;
   }
 `;
-function SlidingFavorite({ favoriteIsOpen, closeSlidingFavorite }) {
+import { FullContext } from "../../../pages/_app";
+function SlidingFavorite() {
+  const { openFavorites, setOpenFavorites } = React.useContext(FullContext);
   return (
-    <SlidingPortal isOpen={favoriteIsOpen} handleClose={closeSlidingFavorite}>
+    <SlidingPortal isOpen={openFavorites} setIsOpen={setOpenFavorites}>
       <WrapperFavorites>
         {tempFavorite.map((item, index) => {
           return <ItemFavoriteFood key={index} item={item} />;

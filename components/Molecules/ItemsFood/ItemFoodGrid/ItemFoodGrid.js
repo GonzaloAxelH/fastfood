@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import ButtonOrder from "../../../Atoms/Buttons/Button";
 import { BiHeart } from "react-icons/bi";
 import { useState } from "react";
-
+import { BallBeat } from "react-pure-loaders";
 import Image from "next/image";
+import { FullContext } from "../../../../pages/_app";
 
 import Link from "next/link";
 const ItemFoodWrapper = styled.div`
@@ -16,6 +17,10 @@ const ItemFoodWrapper = styled.div`
 
   .btn-order {
     margin: auto;
+  }
+  .css-2adxt7-BallBeat {
+    transform: scale(0.7);
+    margin-top: -2px;
   }
 `;
 const FoodInfo = styled.div`
@@ -89,8 +94,11 @@ const BtnFavorite = styled.div`
     fill: #333;
   }
 `;
+
 export default function ItemFoodGrid(props) {
-  const [isClick, setClick] = useState(false);
+  const { setOpenCart } = React.useContext(FullContext);
+
+  const [load, setLoad] = useState(false);
   const { name, price, imageLocal, description } = props.burger;
   const getNumberPrice = (price) => price.split(".")[0].split("$");
   const getDecimalPrice = (price) => price.split(".")[1];
@@ -132,9 +140,22 @@ export default function ItemFoodGrid(props) {
       <div className="btn-order">
         <ButtonOrder
           type="order"
-          label="ORDER NOW"
-          onClick={() => alert(`Order : `, name)}
-        />
+          onClick={async () => {
+            setLoad(true);
+            setTimeout(() => {
+              setOpenCart(true);
+              setLoad(false);
+            }, 1000);
+
+            setTimeout(() => {
+              setOpenCart(false);
+            }, 5000);
+          }}
+        >
+          <span style={{ display: load ? "none" : "block" }}>Order Now</span>
+
+          {load && <BallBeat color="#ffca3c" loading />}
+        </ButtonOrder>
       </div>
     </ItemFoodWrapper>
   );
