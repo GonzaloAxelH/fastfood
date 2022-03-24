@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import SlidingPortal from "../../Portals/SlidingPortal";
 import Button from "../../Atoms/Buttons/Button";
-
+import Link from "next/link";
 import { FiShoppingBag, FiCreditCard } from "react-icons/fi";
 import { useState, useEffect } from "react";
+
+import { useRouter } from "next/router";
 import ItemFoodCart from "../../Molecules/ItemsFood/ItemFoodCart/ItemFoodCart";
 const CartWrapper = styled.div`
   margin: auto;
@@ -58,11 +60,14 @@ const CartButtons = styled.div`
   display: flex;
 
   button {
-    width: 100%;
     margin: 0 7px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+  }
+  a {
+    width: 100%;
   }
   svg {
     width: 20px;
@@ -208,6 +213,7 @@ const cartTemp = {
 };
 import { FullContext } from "../../../pages/_app";
 function SlidingCart() {
+  const router = useRouter();
   const { openCart, setOpenCart } = useContext(FullContext);
   return (
     <SlidingPortal isOpen={openCart} setIsOpen={setOpenCart}>
@@ -230,7 +236,15 @@ function SlidingCart() {
             <FiShoppingBag />
             VIEW CART
           </Button>
-          <Button>
+
+          <Button
+            onClick={() => {
+              setOpenCart(false);
+              setTimeout(() => {
+                router.push("/fastfood/checkout");
+              }, 500);
+            }}
+          >
             <FiCreditCard />
             CHECKOUT
           </Button>
