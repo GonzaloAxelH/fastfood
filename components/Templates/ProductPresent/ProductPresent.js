@@ -47,10 +47,10 @@ const ImagesProductPreview = styled.div`
 `;
 import { FullContext } from "../../../pages/_app";
 export default function ProductPresent() {
+  const { updateOrder } = useContext(FullContext);
   const [product, setProduct] = useState(
     updateOrder ? itemProductCart : itemProduct
   );
-  const { updateOrder } = useContext(FullContext);
   useEffect(() => {
     setProduct(updateOrder ? itemProductCart : itemProduct);
   }, [updateOrder]);
