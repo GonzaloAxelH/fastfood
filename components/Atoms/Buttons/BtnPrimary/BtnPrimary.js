@@ -3,10 +3,9 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 const Button = styled.button`
   cursor: pointer;
-
+  display: ${(props) => (props.hidden ? "none" : "flex")};
   background-color: #333333;
   color: #ffffff;
-  display: flex;
   align-items: center;
   align-items: center;
   justify-content: center;
@@ -28,9 +27,13 @@ const Button = styled.button`
 `;
 export default function BtnPrimary(props) {
   const { label } = props;
-  const router = useRouter();
+
   return (
-    <Button onClick={() => router.push("/fastfood")}>
+    <Button
+      hidden={props.hidden}
+      type={props.submit ? "submit" : "button"}
+      {...props}
+    >
       {label ? label : props.children}
     </Button>
   );

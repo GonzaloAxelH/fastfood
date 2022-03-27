@@ -12,6 +12,8 @@ const GlobalStyles = createGlobalStyle`
       height: 100vh;
       
       }
+
+
  a{
   text-decoration: none;
  }

@@ -1,15 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Title from "../../Atoms/Titles/Title";
+
 import P from "../../Atoms/Parrafos/P";
 import ServingSize from "../../Molecules/ServingSize/ServingSize";
 import NutritionSummary from "../../Molecules/NutritionSummary/NutritionSummary";
 import FormOrderProduct from "../../Organims/FormOrderProduct/FormOrderProduct";
-let product = {
+let itemProduct = {
   idProduct: "4905u4f38945g3g903g",
   name: "Puscan Pizza",
   imageUrl: "/images/Food/puscan-pizza.jpg",
+  description:
+    "Smoked brisket, tender ribs, smoked sausage, bacon & cheddar with lettuce, tomato, house BBQ & ranch.",
+};
+let itemProductCart = {
+  idProduct: "ofgj3489vgja",
+  name: "Burguer Update",
+  imageUrl: "/images/Food/jalapeno-angus-burger.jpg",
   description:
     "Smoked brisket, tender ribs, smoked sausage, bacon & cheddar with lettuce, tomato, house BBQ & ranch.",
 };
@@ -37,8 +45,15 @@ const TitleProduct = styled.h2`
 const ImagesProductPreview = styled.div`
   padding: 2em;
 `;
-
+import { FullContext } from "../../../pages/_app";
 export default function ProductPresent() {
+  const [product, setProduct] = useState(
+    updateOrder ? itemProductCart : itemProduct
+  );
+  const { updateOrder } = useContext(FullContext);
+  useEffect(() => {
+    setProduct(updateOrder ? itemProductCart : itemProduct);
+  }, [updateOrder]);
   return (
     <WrapperProductPresent>
       <ImagesProductPreview>

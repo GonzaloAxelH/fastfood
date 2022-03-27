@@ -1,6 +1,5 @@
 import styled from "styled-components";
-
-import { product } from "../../Organims/FormOrderProduct/FormOrderProduct";
+import { product } from "../../Organims/FormOrderProduct/temp";
 const InputSelectSize = styled.div`
   display: flex;
   align-items: center;

@@ -40,17 +40,31 @@ const ButtonClose = styled.div`
   z-index: 2;
 `;
 
-const PortalSlidingContainer = ({ isOpen, setIsOpen, children }) => {
+const PortalSlidingContainer = ({
+  isOpen,
+  setIsOpen,
+  children,
+  setUpdateOrder,
+}) => {
   useEffect(() => {
     const body = document.getElementById("body");
     setTimeout(() => {
       body.style.overflowY = isOpen ? "hidden" : "auto";
-    }, 250);
+    }, 650);
   }, [isOpen]);
   return (
     <Portal>
       <PortalWrapperAbsolute isOpen={isOpen}>
-        <ButtonClose onClick={() => setIsOpen(false)}>
+        <ButtonClose
+          onClick={() => {
+            setIsOpen(false);
+            setTimeout(() => {
+              if (setUpdateOrder) {
+                setUpdateOrder(false);
+              }
+            }, 1000);
+          }}
+        >
           <VscChromeClose />
         </ButtonClose>
         {children}

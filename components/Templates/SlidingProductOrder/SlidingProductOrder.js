@@ -10,11 +10,13 @@ const WrapperContent = styled.div`
   overflow-y: auto;
 `;
 export default function JustProductOrder() {
-  const { openOrderProduct, setOpenOrderProduct } = useContext(FullContext);
+  const { openOrderProduct, setOpenOrderProduct, setUpdateOrder } =
+    useContext(FullContext);
   return (
     <PortalSlidingContainer
       isOpen={openOrderProduct}
       setIsOpen={setOpenOrderProduct}
+      setUpdateOrder={setUpdateOrder}
     >
       <WrapperContent>
         <ProductPresent />

@@ -5,6 +5,38 @@ body {
   background-color: #f2f2f2;
   margin: 0;
 }
+body::-webkit-scrollbar {
+  width: 5px; /* Tamaño del scroll en vertical */
+  height: 5px; /* Tamaño del scroll en horizontal */
+}
+
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+body::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 2px;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+body::-webkit-scrollbar-thumb:hover {
+  background: red;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Cambiamos el fondo cuando esté en active */
+body::-webkit-scrollbar-thumb:active {
+  background-color: red;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f9a801;
+}
+
+/* Cambiamos el fondo cuando esté en active o hover */
+body::-webkit-scrollbar-track:hover,
+body::-webkit-scrollbar-track:active {
+  background: #f9a801;
+}
+
 @font-face {
   font-family: "Rubik 300";
   src: local("Rubik"), url("../../public/fonts/Rubik/static/Rubik-Light.ttf");

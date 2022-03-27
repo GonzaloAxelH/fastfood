@@ -3,25 +3,24 @@ import styled from "styled-components";
 import FormBillingDetails from "../../Organims/FormBillingDetails/FormBillingDetails";
 import FormPaymentDetails from "../../Organims/FormPaymentDetails/FormPaymentDetails";
 import ShopTableOrders from "../../Organims/ShopTableOrders/ShopTableOrders";
-import { Formik, Form, useField } from "formik";
-import {
-  CountryDropdown,
-  RegionDropdown,
-  CountryRegionData,
-} from "react-country-region-selector";
-import { initialValues, SignupSchema } from "./FormUtils";
+import { Formik, Form } from "formik";
+
+import { initialValues } from "./FormUtils";
 
 const FormWrapper = styled.div`
   padding: 30px;
   form {
     display: grid;
     grid-template-columns: 3fr 2fr;
+    justify-content: center;
+    @media (max-width: ${(props) => props.theme.screens.tabletL}) {
+      grid-template-columns: 1fr;
+    }
     width: 100%;
   }
 `;
 
 export default function FormCheckout() {
-  console.log(CountryRegionData);
   const handleSubmit = (values) => {
     console.log(values);
   };

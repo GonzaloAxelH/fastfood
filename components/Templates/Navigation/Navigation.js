@@ -10,10 +10,8 @@ const NavigationWrapperFixed = styled.div`
   width: 100vw;
   z-index: 10;
   background: ${(props) =>
-    props.offset == 0 ? "transparent" : "rgba(255,255,255, 0.7)"};
+    props.offset == 0 ? "transparent" : "rgba(255,255,255)"};
   transition: 0.25s all;
-  --webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
 `;
 const WrapperMiniNavs = styled.div`
   display: flex;
@@ -34,7 +32,6 @@ export default function Navigation({ scrollOffset, openMenu }) {
         <ButtonMenu onClick={openMenu}>
           <FiMenu />
         </ButtonMenu>
-
         <MiniNav openMenu={openMenu} />
       </WrapperMiniNavs>
     </NavigationWrapperFixed>

@@ -1,17 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
-import { FiTrash2 } from "react-icons/fi";
+
 const ItemFoodCartContainer = styled.div`
   display: flex;
-
   a {
     text-decoration: none;
   }
-  border-bottom: 1px solid #f1f1f1;
+
   padding: 10px;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
 `;
 const InfoProduct = styled.div`
@@ -24,7 +23,7 @@ const InfoProduct = styled.div`
     font-size: 14px;
     font-family: "Rubik 400";
     color: #333333;
-    margin: 0;
+    margin: 0.5em 0;
   }
 `;
 const ImageProduct = styled.div`
@@ -73,21 +72,20 @@ const VeggiesGoodStuff = styled.div``;
 const Toppings = styled.div``;
 const PizzaBuildOptions = styled.div``;
 
-const DeleteProduct = styled.div`
-  cursor: pointer;
-`;
 const AllFoodOptions = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
 `;
+
+import { FullContext } from "../../../../pages/_app";
 function ItemFoodCart({ itemFood }) {
   const { name, priceUnit, img, quantity, customOptions, feactures } = itemFood;
-
+  const { setOpenCart } = useContext(FullContext);
   return (
     <ItemFoodCartContainer>
-      <div>
+      <div onClick={() => setOpenCart(false)}>
         <Link href={`/fastfood/product/${name}`}>
           <a>
             <ImageProduct>
@@ -98,8 +96,8 @@ function ItemFoodCart({ itemFood }) {
       </div>
 
       <InfoProduct>
-        <div>
-          <Link href="/">
+        <div onClick={() => setOpenCart(false)}>
+          <Link href={`/fastfood/product/${name}`}>
             <a>
               <p className="name-product">{name}</p>
             </a>
@@ -203,9 +201,6 @@ function ItemFoodCart({ itemFood }) {
           {quantity} x <span>{priceUnit} </span>
         </Prices>
       </InfoProduct>
-      <DeleteProduct>
-        <FiTrash2 />
-      </DeleteProduct>
     </ItemFoodCartContainer>
   );
 }

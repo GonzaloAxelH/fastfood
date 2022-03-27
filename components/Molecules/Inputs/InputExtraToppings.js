@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { BaseStylesInput } from "./InpusCrust";
-import { product } from "../../Organims/FormOrderProduct/FormOrderProduct";
+import { product } from "../../Organims/FormOrderProduct/temp";
 import React, { useEffect, useState } from "react";
 
 const ExtraToppings = styled.div`
@@ -15,23 +15,27 @@ function InputExtraToppings({ extrasOrder, getExtra }) {
     <ExtraToppings>
       <p className="title-abs">EXTRA TOPPINGS</p>
       <div className="inputs-checkbox">
-        {product.extras.map((ext, index) => {
+        {product.extras.map((extraToppingItem, index) => {
+          let isChecked = existsObjInArr(extraToppingItem, extrasOrder);
           return (
-            <Checkbox isChecked={existsObjInArr(ext, extrasOrder)} key={index}>
+            <Checkbox isChecked={isChecked} key={index}>
               <label className="option-checkbox">
                 <CheckboxInput
-                  ext={ext}
-                  checked={existsObjInArr(ext, extrasOrder)}
-                  setChecked={(ext, isChecked) => getExtra(ext, isChecked)}
+                  checked={isChecked}
+                  setChecked={(isChecked) =>
+                    getExtra(extraToppingItem, isChecked)
+                  }
                   extrasOrder={extrasOrder}
                 />
                 <Text
                   extrasOrder={extrasOrder}
-                  ext={ext}
-                  setChecked={(ext, isChecked) => getExtra(ext, isChecked)}
+                  checked={isChecked}
+                  setChecked={(isChecked) =>
+                    getExtra(extraToppingItem, isChecked)
+                  }
                 >
                   <span>
-                    {ext.name} {ext.price}
+                    {extraToppingItem.name} {extraToppingItem.price}
                   </span>
                 </Text>
               </label>
@@ -56,22 +60,18 @@ const Checkbox = ({ isChecked, children }) => {
   return allChildren;
 };
 
-const CheckboxInput = ({ checked, setChecked, ext, extrasOrder }) => {
+const CheckboxInput = ({ checked, setChecked }) => {
   return (
     <input
       type="checkbox"
-      onChange={(e) => setChecked(ext, !existsObjInArr(ext, extrasOrder))}
+      onChange={(e) => setChecked(!checked)}
       checked={checked}
     />
   );
 };
 
-const Text = ({ setChecked, children, ext, extrasOrder }) => {
-  return (
-    <div onClick={() => setChecked(ext, existsObjInArr(ext, extrasOrder))}>
-      {children}
-    </div>
-  );
+const Text = ({ setChecked, children, checked }) => {
+  return <div onClick={() => setChecked(checked)}>{children}</div>;
 };
 
 export default InputExtraToppings;

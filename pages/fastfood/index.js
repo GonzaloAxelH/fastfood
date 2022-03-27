@@ -1,5 +1,3 @@
-import styled from "styled-components";
-import { useState, useEffect } from "react";
 import BannerSlide from "../../components/Templates/Banners/BannerSlide";
 import GrilledBurgers from "../../components/Templates/GrilledBurgers/GrilledBurgers";
 import ListCategorySlide from "../../components/Organims/ListCategorySlide/ListCategorySlide";
@@ -21,9 +19,3 @@ export default function Home() {
     </Layout>
   );
 }
-
-/**
- *
- *
- *
- */

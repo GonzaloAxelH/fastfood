@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { product } from "../../Organims/FormOrderProduct/FormOrderProduct";
+import { product } from "../../Organims/FormOrderProduct/temp";
 import P from "../../Atoms/Parrafos/P";
 import React, { useState, useEffect } from "react";
 export const BaseStylesInput = css`
