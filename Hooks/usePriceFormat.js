@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function usePriceFormat(price) {
   const pricefixed = parseFloat(price).toFixed(2);
   const intPrice = String(pricefixed).split(".")[0];

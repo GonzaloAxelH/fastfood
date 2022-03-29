@@ -6,6 +6,9 @@ import ProductPresent from "../../../components/Templates/ProductPresent/Product
 import ProductReviews from "../../../components/Templates/ProductReviews/ProductReviews";
 import YouMayAlsoLike from "../../../components/Templates/YouMayAlsoLike/YouMayAlsoLike";
 import OtherProducts from "../../../components/Templates/OtherProducts/OtherProducts";
+import { useRouter } from "next/router";
+import { connect } from "react-redux";
+import { useEffect, useState } from "react";
 const WrapperPage = styled.div`
   padding: 300px 0 0 0;
 
@@ -16,7 +19,15 @@ const WrapperPage = styled.div`
     text-align: center;
   }
 `;
-function SingleProduct() {
+function SingleProduct({ getProductByName, product }) {
+  const [singleProduct, setSingleProduct] = useState(false);
+  const router = useRouter();
+  const { nameProduct } = router.query;
+  useEffect(() => {
+    getProductByName(nameProduct);
+    setSingleProduct(product);
+    console.log(product);
+  }, [router, getProductByName, product]);
   return (
     <Layout>
       <WrapperPage>
@@ -24,7 +35,7 @@ function SingleProduct() {
           <Path />
         </div>
         <section>
-          <ProductPresent />
+          {singleProduct && <ProductPresent singleProduct={singleProduct} />}
         </section>
         <section>
           <ProductReviews />
@@ -40,4 +51,23 @@ function SingleProduct() {
   );
 }
 
-export default SingleProduct;
+const mapStateToProps = (state) => {
+  return {
+    product: state.products.product,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getProductByName: (nameProduct) => {
+      dispatch({
+        type: "GET_PRODUCT",
+        payload: {
+          nameProduct,
+        },
+      });
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SingleProduct);

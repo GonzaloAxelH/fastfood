@@ -99,8 +99,14 @@ export default function ItemFoodGrid(props) {
 
   const [load, setLoad] = useState(false);
   const { name, price, imageLocal, description } = props.burger;
-  const getNumberPrice = (price) => price.split(".")[0].split("$");
-  const getDecimalPrice = (price) => price.split(".")[1];
+  const getNumberPrice = (price) => String(price).split(".")[0];
+  const getDecimalPrice = (price) => String(price).split(".")[1];
+  const convertNameURL = (name) => {
+    return name
+      .split(" ")
+      .map((el) => el.toLowerCase())
+      .join("-");
+  };
 
   return (
     <ItemFoodWrapper>
@@ -114,7 +120,7 @@ export default function ItemFoodGrid(props) {
         <BtnFavorite>
           <BiHeart />
         </BtnFavorite>
-        <Link href={`/fastfood/product/${name}`}>
+        <Link href={`/fastfood/product/${convertNameURL(name)}`}>
           <a>
             <Image
               src={`/images/Food/${imageLocal}`}
@@ -129,7 +135,7 @@ export default function ItemFoodGrid(props) {
       </ImageWrapper>
 
       <FoodInfo>
-        <Link href={`/fastfood/product/${name}`}>
+        <Link href={`/fastfood/product/${convertNameURL(name)}`}>
           <a>
             <p>{name}</p>
           </a>

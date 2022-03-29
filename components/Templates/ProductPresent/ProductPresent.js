@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Title from "../../Atoms/Titles/Title";
-
 import P from "../../Atoms/Parrafos/P";
 import ServingSize from "../../Molecules/ServingSize/ServingSize";
 import NutritionSummary from "../../Molecules/NutritionSummary/NutritionSummary";
@@ -46,20 +45,21 @@ const ImagesProductPreview = styled.div`
   padding: 2em;
 `;
 import { FullContext } from "../../../pages/_app";
-export default function ProductPresent() {
+
+export default function ProductPresent({ singleProduct }) {
   const { updateOrder } = useContext(FullContext);
-  const [product, setProduct] = useState(
-    updateOrder ? itemProductCart : itemProduct
-  );
+  const [product, setProduct] = useState(singleProduct);
   useEffect(() => {
-    setProduct(updateOrder ? itemProductCart : itemProduct);
+    setProduct(updateOrder ? singleProduct : singleProduct);
+    console.log(singleProduct);
   }, [updateOrder]);
+
   return (
     <WrapperProductPresent>
       <ImagesProductPreview>
         <ImageWrapper>
           <Image
-            src={product.imageUrl}
+            src={`/images/Food/${product.imageLocal}`}
             alt={product.name}
             width={900}
             height={900}

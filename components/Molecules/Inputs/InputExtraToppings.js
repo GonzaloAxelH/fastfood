@@ -18,27 +18,25 @@ function InputExtraToppings({ extrasOrder, getExtra }) {
         {product.extras.map((extraToppingItem, index) => {
           let isChecked = existsObjInArr(extraToppingItem, extrasOrder);
           return (
-            <Checkbox isChecked={isChecked} key={index}>
-              <label className="option-checkbox">
+            <Checkbox
+              key={index}
+              isChecked={isChecked}
+              setIsChecked={(check) => getExtra(extraToppingItem, check)}
+            >
+              <div className="option-checkbox">
                 <CheckboxInput
                   checked={isChecked}
-                  setChecked={(isChecked) =>
-                    getExtra(extraToppingItem, isChecked)
-                  }
-                  extrasOrder={extrasOrder}
+                  setChecked={(check) => getExtra(extraToppingItem, check)}
                 />
-                <Text
-                  extrasOrder={extrasOrder}
+                <CheckboxLabel
                   checked={isChecked}
-                  setChecked={(isChecked) =>
-                    getExtra(extraToppingItem, isChecked)
-                  }
+                  setChecked={(check) => getExtra(extraToppingItem, check)}
                 >
                   <span>
                     {extraToppingItem.name} {extraToppingItem.price}
                   </span>
-                </Text>
-              </label>
+                </CheckboxLabel>
+              </div>
             </Checkbox>
           );
         })}
@@ -47,12 +45,11 @@ function InputExtraToppings({ extrasOrder, getExtra }) {
   );
 }
 
-const Checkbox = ({ isChecked, children }) => {
-  const [checked, setChecked] = useState(isChecked);
+const Checkbox = ({ isChecked, setIsChecked, children }) => {
   const allChildren = React.Children.map(children, (child) => {
     const propsParaPasar = {
-      checked,
-      setChecked,
+      isChecked,
+      setIsChecked,
     };
     const clone = React.cloneElement(child, propsParaPasar);
     return clone;
@@ -60,18 +57,24 @@ const Checkbox = ({ isChecked, children }) => {
   return allChildren;
 };
 
-const CheckboxInput = ({ checked, setChecked }) => {
+const CheckboxInput = ({ checked, setChecked, isChecked, setIsChecked }) => {
   return (
     <input
       type="checkbox"
-      onChange={(e) => setChecked(!checked)}
+      onChange={(e) => setChecked(e.target.checked)}
       checked={checked}
     />
   );
 };
 
-const Text = ({ setChecked, children, checked }) => {
-  return <div onClick={() => setChecked(checked)}>{children}</div>;
+const CheckboxLabel = ({
+  setChecked,
+  children,
+  checked,
+  isChecked,
+  setIsChecked,
+}) => {
+  return <label onClick={() => setChecked(!checked)}>{children}</label>;
 };
 
 export default InputExtraToppings;

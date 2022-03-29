@@ -4,7 +4,8 @@ import { SingleTheme } from "../styles/theme/Variables";
 import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../styles/GlobalStyles";
 import { useState, createContext } from "react";
-
+import { Provider } from "react-redux";
+import store from "../redux/store/Store";
 export const FullContext = createContext();
 function MyApp({ Component, pageProps }) {
   const theme = SingleTheme;
@@ -28,21 +29,24 @@ function MyApp({ Component, pageProps }) {
     updateOrder,
     setUpdateOrder,
   };
+
   return (
-    <FullContext.Provider value={allContextValues}>
-      <ThemeProvider theme={theme}>
-        <NextNProgress
-          color="#FCCC4C"
-          startPosition={0.3}
-          stopDelayMs={200}
-          height={3}
-          showOnShallow={true}
-          options={{ easing: "ease", speed: 500 }}
-        />
-        <GlobalStyles />
-        <Component {...pageProps} />;
-      </ThemeProvider>
-    </FullContext.Provider>
+    <Provider store={store}>
+      <FullContext.Provider value={allContextValues}>
+        <ThemeProvider theme={theme}>
+          <NextNProgress
+            color="#FCCC4C"
+            startPosition={0.3}
+            stopDelayMs={200}
+            height={3}
+            showOnShallow={true}
+            options={{ easing: "ease", speed: 500 }}
+          />
+          <GlobalStyles />
+          <Component {...pageProps} />;
+        </ThemeProvider>
+      </FullContext.Provider>
+    </Provider>
   );
 }
 

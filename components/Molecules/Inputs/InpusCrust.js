@@ -22,22 +22,48 @@ export const BaseStylesInput = css`
     padding: 0 0 1em 0;
     margin: 0;
   }
-  label {
+  .option-checkbox {
     font-size: 11px;
     font-family: "Rubik 600";
     color: #333;
     display: flex;
     align-items: center;
     height: 100%;
+    background-color: #f1f1f1;
 
+    padding: 0.6em 0.5em;
+    border-radius: 5px;
+
+    label {
+      cursor: pointer;
+      text-transform: uppercase;
+      padding-top: 3px;
+      padding-left: 3px;
+      width: 100%;
+
+      -webkit-user-drag: none;
+      user-select: none;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+    }
+  }
+  .option-radio {
+    font-size: 11px;
+    font-family: "Rubik 600";
+    color: #333;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    background-color: #f1f1f1;
+    padding: 0.6em 0.5em;
+    border-radius: 5px;
     span {
       text-transform: uppercase;
       padding-top: 3px;
       padding-left: 3px;
     }
-  }
-  .option-radio,
-  .option-checkbox {
+
     -webkit-user-drag: none;
     user-select: none;
     -moz-user-select: none;
@@ -131,17 +157,3 @@ const Text = ({ setchecked, cr, children }) => {
 };
 
 export default InpusCrust;
-
-/**
- * 
- * <label className="option-radio" htmlFor="" key={index}>
-              <input
-                onChange={() => handleChange(cr)}
-                type="radio"
-                checked={cr.name === crust.name}
-              />
-              <span>
-                {cr.name} {cr.price === 0 ? "Free" : cr.price}
-              </span>
-            </label>
-*/

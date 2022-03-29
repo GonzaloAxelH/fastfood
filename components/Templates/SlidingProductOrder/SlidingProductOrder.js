@@ -18,9 +18,11 @@ export default function JustProductOrder() {
       setIsOpen={setOpenOrderProduct}
       setUpdateOrder={setUpdateOrder}
     >
-      <WrapperContent>
-        <ProductPresent />
-      </WrapperContent>
+      <WrapperContent></WrapperContent>
     </PortalSlidingContainer>
   );
 }
+
+/*
+<ProductPresent />;
+ */
