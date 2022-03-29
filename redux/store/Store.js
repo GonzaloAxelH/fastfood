@@ -14,6 +14,7 @@ const getProduct = (state, payload) => {
       .join("-");
   };
   const nameProduct = payload.nameProduct;
+
   const product = state.allProducts.find(
     (el) => convertNameURL(el.name) == nameProduct
   );

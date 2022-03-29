@@ -51,8 +51,7 @@ export default function ProductPresent({ singleProduct }) {
   const [product, setProduct] = useState(singleProduct);
   useEffect(() => {
     setProduct(updateOrder ? singleProduct : singleProduct);
-    console.log(singleProduct);
-  }, [updateOrder]);
+  }, [updateOrder, singleProduct]);
 
   return (
     <WrapperProductPresent>
