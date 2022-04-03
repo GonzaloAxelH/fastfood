@@ -3,6 +3,7 @@ import Image from "next/image";
 import Title from "../../Atoms/Titles/Title";
 import P from "../../Atoms/Parrafos/P";
 import Button from "../../Atoms/Buttons/Button";
+
 import {
   BannerSlideWrapper,
   InfoBanner,

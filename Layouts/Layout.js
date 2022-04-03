@@ -23,6 +23,7 @@ const PageContainer = styled.main`
 `;
 
 import JustProductOrder from "../components/Templates/SlidingProductOrder/SlidingProductOrder";
+import SlidingEditOrderCart from "../components/Templates/SlidingEditOrderCart/SlidingEditOrderCart";
 
 export default function Layout({ children }) {
   const { offset } = useScroll();
@@ -34,6 +35,7 @@ export default function Layout({ children }) {
       <SlidingFavorite />
       <SlidingSearch />
       <JustProductOrder />
+      <SlidingEditOrderCart />
       <NavMobile
         menuIsOpen={menuIsOpen}
         closeSlidingMenu={() => menuUserIsOpen(false)}

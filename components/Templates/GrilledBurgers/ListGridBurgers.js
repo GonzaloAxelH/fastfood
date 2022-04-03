@@ -9,6 +9,7 @@ const ListGridBurgersStyled = styled.div`
   width: 100%;
   padding: 3em 0;
 `;
+
 function ListGridBurgers({ products }) {
   const [burgers, setBurgers] = React.useState([]);
   useEffect(() => {
@@ -29,4 +30,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(ListGridBurgers);
+export default connect(mapStateToProps, null)(ListGridBurgers);

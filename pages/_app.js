@@ -6,6 +6,14 @@ import GlobalStyles from "../styles/GlobalStyles";
 import { useState, createContext } from "react";
 import { Provider } from "react-redux";
 import store from "../redux/store/Store";
+import { actionLoadCart } from "../redux/actioncreators/actonsCart";
+
+store.subscribe(() => {
+  console.log("store", store.getState());
+});
+
+store.dispatch(actionLoadCart());
+
 export const FullContext = createContext();
 function MyApp({ Component, pageProps }) {
   const theme = SingleTheme;
@@ -13,21 +21,26 @@ function MyApp({ Component, pageProps }) {
   const [openFavorites, setOpenFavorites] = useState(false);
   const [openSearching, setOpenSearching] = useState(false);
   const [openPerfil, setOpenPerfil] = useState(false);
-  const [updateOrder, setUpdateOrder] = useState(false);
-  const [openOrderProduct, setOpenOrderProduct] = useState(false);
+  const [openSlidingEditCart, setOpenSlidingEditCart] = useState(false);
+  const [openSlidingOrderProduct, setOpenSlidingOrderProduct] = useState(false);
   const allContextValues = {
     openCart,
     setOpenCart,
+
     openFavorites,
     setOpenFavorites,
+
     openSearching,
     setOpenSearching,
+
     openPerfil,
     setOpenPerfil,
-    openOrderProduct,
-    setOpenOrderProduct,
-    updateOrder,
-    setUpdateOrder,
+
+    openSlidingOrderProduct,
+    setOpenSlidingOrderProduct,
+
+    openSlidingEditCart,
+    setOpenSlidingEditCart,
   };
 
   return (

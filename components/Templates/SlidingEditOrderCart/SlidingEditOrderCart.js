@@ -10,13 +10,13 @@ const WrapperContent = styled.div`
   padding: 0 0 3em 0;
   overflow-y: auto;
 `;
-function JustProductOrder({ product }) {
-  const { openSlidingOrderProduct, setOpenSlidingOrderProduct } =
+function SlidingEditOrderCart({ product }) {
+  const { openSlidingEditCart, setOpenSlidingEditCart } =
     useContext(FullContext);
   return (
     <PortalSlidingContainer
-      isOpen={openSlidingOrderProduct}
-      setIsOpen={setOpenSlidingOrderProduct}
+      isOpen={openSlidingEditCart}
+      setIsOpen={setOpenSlidingEditCart}
     >
       <WrapperContent>{product && <ProductPresent />}</WrapperContent>
     </PortalSlidingContainer>
@@ -27,4 +27,4 @@ const mapStateToProps = (state) => {
     product: state.products.product,
   };
 };
-export default connect(mapStateToProps)(JustProductOrder);
+export default connect(mapStateToProps)(SlidingEditOrderCart);

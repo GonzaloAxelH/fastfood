@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { product } from "../../Organims/FormOrderProduct/FormOrderProduct";
+import { product } from "../../Organims/FormProduct/FormProduct";
 const Contador = styled.div`
   font-family: "Rubik 700";
   background-color: #f5f5f5;

@@ -71,3 +71,12 @@ export default function ItemReview({ review }) {
     </ItemReviewWrapper>
   );
 }
+
+class Roee {
+  component() {
+    this.state = { count: 0 };
+  }
+  render() {
+    return <div></div>;
+  }
+}

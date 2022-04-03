@@ -3,7 +3,7 @@ export const WrapperForm = styled.div``;
 
 export const Price = styled.div`
   padding: 0.5em 0 0 0;
-
+  margin: 0.5em 0;
   background-color: #fff;
   border-radius: 12px;
   font-size: 30px;

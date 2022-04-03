@@ -1,8 +1,7 @@
+import React from "react";
 import styled from "styled-components";
 import { BaseStylesInput } from "./InpusCrust";
-import { product } from "../../Organims/FormOrderProduct/temp";
-import React, { useEffect, useState } from "react";
-
+import { connect } from "react-redux";
 const ExtraToppings = styled.div`
   ${BaseStylesInput};
 `;
@@ -10,8 +9,8 @@ const ExtraToppings = styled.div`
 const existsObjInArr = (obj, arr) => {
   return arr.some((item) => item.name === obj.name);
 };
-function InputExtraToppings({ extrasOrder, getExtra }) {
-  return (
+function InputExtraToppings({ extrasOrder, getExtra, product }) {
+  return product.extras ? (
     <ExtraToppings>
       <p className="title-abs">EXTRA TOPPINGS</p>
       <div className="inputs-checkbox">
@@ -42,7 +41,7 @@ function InputExtraToppings({ extrasOrder, getExtra }) {
         })}
       </div>
     </ExtraToppings>
-  );
+  ) : null;
 }
 
 const Checkbox = ({ isChecked, setIsChecked, children }) => {
@@ -57,7 +56,7 @@ const Checkbox = ({ isChecked, setIsChecked, children }) => {
   return allChildren;
 };
 
-const CheckboxInput = ({ checked, setChecked, isChecked, setIsChecked }) => {
+const CheckboxInput = ({ checked, setChecked }) => {
   return (
     <input
       type="checkbox"
@@ -67,14 +66,14 @@ const CheckboxInput = ({ checked, setChecked, isChecked, setIsChecked }) => {
   );
 };
 
-const CheckboxLabel = ({
-  setChecked,
-  children,
-  checked,
-  isChecked,
-  setIsChecked,
-}) => {
+const CheckboxLabel = ({ setChecked, children, checked }) => {
   return <label onClick={() => setChecked(!checked)}>{children}</label>;
 };
 
-export default InputExtraToppings;
+const mapStateToProps = (state) => {
+  return {
+    product: state.products.product,
+  };
+};
+
+export default connect(mapStateToProps)(InputExtraToppings);

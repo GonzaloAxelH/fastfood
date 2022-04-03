@@ -1,14 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Item from "./Item";
-
-import {
-  FiMenu,
-  FiShoppingBag,
-  FiHeart,
-  FiUser,
-  FiSearch,
-} from "react-icons/fi";
+import { connect } from "react-redux";
+import { FiShoppingBag, FiHeart, FiUser, FiSearch } from "react-icons/fi";
 const MiniNavWrapper = styled.div`
   background-color: #fff;
   border-radius: 99px;
@@ -34,7 +28,7 @@ const MiniNavWrapper = styled.div`
   }
 `;
 import { FullContext } from "../../../pages/_app";
-export default function MiniNav() {
+function MiniNav({ productsCart }) {
   const { setOpenPerfil, setOpenCart, setOpenFavorites, setOpenSearching } =
     React.useContext(FullContext);
 
@@ -52,7 +46,7 @@ export default function MiniNav() {
         type="cart"
         onClick={() => setOpenCart(true)}
         Icon={FiShoppingBag}
-        number={1}
+        number={productsCart.length}
       />
       <Item
         type="search"
@@ -62,3 +56,10 @@ export default function MiniNav() {
     </MiniNavWrapper>
   );
 }
+const mapStateToProps = (state) => {
+  return {
+    productsCart: state.productsCart.allProductsCart,
+  };
+};
+
+export default connect(mapStateToProps)(MiniNav);

@@ -1,8 +1,8 @@
+import axios from "axios";
 import { loadStripe } from "@stripe/stripe-js";
+import { useState } from "react";
 const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
 const stripePromise = loadStripe(publishableKey);
-import axios from "axios";
-import { useState } from "react";
 
 export const usePayment = ({ item }) => {
   const [result, setResult] = useState(null);

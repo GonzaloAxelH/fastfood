@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { product } from "../../Organims/FormOrderProduct/temp";
+
+import { connect } from "react-redux";
 const InputSelectSize = styled.div`
   display: flex;
   align-items: center;
@@ -34,8 +35,8 @@ const Size = styled.span`
   }
   transition: 0.2s all;
 `;
-function InputSize({ getSize, size }) {
-  return (
+function InputSize({ getSize, size, product }) {
+  return product.sizes ? (
     <InputSelectSize>
       <p>SIZE</p>
       <div className="sizes-list">
@@ -52,7 +53,12 @@ function InputSize({ getSize, size }) {
         })}
       </div>
     </InputSelectSize>
-  );
+  ) : null;
 }
+const mapStateToProps = (state) => {
+  return {
+    product: state.products.product,
+  };
+};
 
-export default InputSize;
+export default connect(mapStateToProps)(InputSize);

@@ -52,8 +52,8 @@ const ItemFoodContainer = styled.div`
 `;
 
 function ItemFavoriteFood({ item }) {
-  const { id, product } = item;
-  const { img, price, name, idProduct } = product;
+  const { product } = item;
+  const { img, price, name } = product;
 
   return (
     <ItemFoodContainer>

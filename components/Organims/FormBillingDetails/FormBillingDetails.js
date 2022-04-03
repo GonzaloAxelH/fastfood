@@ -1,10 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { BsCheck2Circle } from "react-icons/bs";
-import {
-  CountryDropdown,
-  RegionDropdown,
-  CountryRegionData,
-} from "react-country-region-selector";
+import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 
 import { Field, useField } from "formik";
 import styled from "styled-components";

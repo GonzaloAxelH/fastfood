@@ -1,7 +1,7 @@
 import React from "react";
 import ItemFoodSimple from "../../Molecules/ItemsFood/ItemFoodSimple/ItemFoodSimple";
 import styled from "styled-components";
-import Title from "../../Atoms/Titles/Title";
+
 import BigTitle from "../../Atoms/Titles/BigTitle";
 const tempproducts = [
   {

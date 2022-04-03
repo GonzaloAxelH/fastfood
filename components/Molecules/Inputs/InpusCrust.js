@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components";
-import { product } from "../../Organims/FormOrderProduct/temp";
 import P from "../../Atoms/Parrafos/P";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { connect } from "react-redux";
+
 export const BaseStylesInput = css`
   width: 100%;
   padding: 25px;
@@ -94,8 +95,8 @@ export const FoodCrust = styled.div`
     padding: 0em 0.4em;
   }
 `;
-function InpusCrust({ crust, getCrust }) {
-  return (
+function InpusCrust({ crust, getCrust, product }) {
+  return product.crusts ? (
     <FoodCrust>
       <p className="title-abs">CRUST</p>
       <P color="#666666" size="15px" style={{ fontStyle: "italic" }}>
@@ -123,7 +124,7 @@ function InpusCrust({ crust, getCrust }) {
         })}
       </div>
     </FoodCrust>
-  );
+  ) : null;
 }
 
 function Radius({ ischecked, children }) {
@@ -156,4 +157,10 @@ const Text = ({ setchecked, cr, children }) => {
   );
 };
 
-export default InpusCrust;
+const mapStateToProps = (state) => {
+  return {
+    product: {},
+  };
+};
+
+export default connect(mapStateToProps)(InpusCrust);

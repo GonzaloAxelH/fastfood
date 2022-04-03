@@ -1,4 +1,15 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+
+export const CartItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #f1f1f1;
+`;
+export const CartDelete = styled.div`
+  cursor: pointer;
+  margin: 0 1em;
+`;
 
 export const CartWrapper = styled.div`
   margin: auto;
@@ -89,4 +100,10 @@ export const CartAmmount = styled.div`
     font-family: "Rubik 400";
   }
 `;
-export const CartPriceTotal = styled.div``;
+export const CartPriceTotal = styled.div`
+  span:before{
+    content: "$";
+    font-size: 14px;
+    margin-right: 2px;
+  }
+`;

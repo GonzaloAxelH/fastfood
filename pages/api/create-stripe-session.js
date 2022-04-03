@@ -3,7 +3,7 @@ const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const CreateSrtipeSession = async (req, res) => {
   const { item } = req.body;
 
-  const redirectURL = "http://localhost:3000/fastfood/checkout/orders";
+  const redirectURL = "https://fastfoodilo.vercel.app/fastfood/checkout";
   const transformedItem = {
     price_data: {
       currency: "usd",

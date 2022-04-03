@@ -1,113 +1,31 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
-import ButtonOrder from "../../../Atoms/Buttons/Button";
+import React from "react";
+import {
+  nameFormat,
+  getNumberPrice,
+  getDecimalPrice,
+} from "../../../../helpers/cartHelpers";
+import ButtonOrderNow from "../../../Atoms/Buttons/Button";
 import { BiHeart } from "react-icons/bi";
-import { useState } from "react";
-import { BallBeat } from "react-pure-loaders";
+import { connect } from "react-redux";
 import Image from "next/image";
-
+import {
+  ItemFoodWrapper,
+  ImageWrapper,
+  PriceHold,
+  BtnFavorite,
+  FoodInfo,
+} from "./ItemFoodGridStyles.jsx";
 import Link from "next/link";
-const ItemFoodWrapper = styled.div`
-  padding: 20px;
-  justify-self: center;
-  display: flex;
-  background-size: contain;
-  flex-direction: column;
-
-  .btn-order {
-    margin: auto;
-  }
-  .css-2adxt7-BallBeat {
-    transform: scale(0.7);
-    margin-top: -2px;
-  }
-`;
-const FoodInfo = styled.div`
-  padding: 0px 20px 15px;
-  text-align: center;
-  p:nth-child(1) {
-    font-family: "Rubik 500";
-    font-size: 17px;
-    color: #333;
-    margin-bottom: 6px;
-  }
-  p:nth-child(2) {
-    font-family: "Rubik 400";
-    font-size: 14px;
-    color: #888888;
-    line-height: 1.625em;
-  }
-  a {
-    text-decoration: none;
-  }
-`;
-
-const ImageWrapper = styled.div`
-  border-radius: 8px;
-  border: 1px solid #e5e5e5;
-  position: relative;
-
-  overflow: hidden;
-
-  img {
-    object-fit: contain;
-  }
-`;
-const PriceHold = styled.div`
-  color: #ffffff;
-  background-color: #4d2c21;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 2;
-  span {
-    font-size: 14px;
-    cursor: default;
-    font-family: "Rubik 700";
-  }
-
-  span:before {
-    content: "$";
-    font-size: 12px;
-    margin-right: 1px;
-  }
-  left: 1em;
-  top: 1em;
-  padding: 7px;
-  border-radius: 4px;
-`;
-const BtnFavorite = styled.div`
-  position: absolute;
-  cursor: pointer;
-  bottom: 0em;
-  padding: 1em;
-  right: 0em;
-  z-index: 2;
-  .go4268192979 {
-    width: 50px;
-    height: 50px;
-  }
-  svg {
-    width: 23px;
-    height: 23px;
-    fill: #333;
-  }
-`;
 import { FullContext } from "../../../../pages/_app";
-export default function ItemFoodGrid(props) {
-  const { setOpenOrderProduct } = React.useContext(FullContext);
+import { actionSetProduct } from "../../../../redux/actioncreators/actionsProducts";
 
-  const [load, setLoad] = useState(false);
+function ItemFoodGrid(props) {
+  const { setOpenSlidingOrderProduct } = React.useContext(FullContext);
   const { name, price, imageLocal, description } = props.burger;
-  const getNumberPrice = (price) => String(price).split(".")[0];
-  const getDecimalPrice = (price) => String(price).split(".")[1];
-  const convertNameURL = (name) => {
-    return name
-      .split(" ")
-      .map((el) => el.toLowerCase())
-      .join("-");
+  const handleClickSetOrderNow = () => {
+    props.setProduct(props.burger);
+    setOpenSlidingOrderProduct(true);
   };
-
   return (
     <ItemFoodWrapper>
       <ImageWrapper>
@@ -120,7 +38,7 @@ export default function ItemFoodGrid(props) {
         <BtnFavorite>
           <BiHeart />
         </BtnFavorite>
-        <Link href={`/fastfood/product/${convertNameURL(name)}`}>
+        <Link href={`/fastfood/product/${nameFormat(name)}`}>
           <a>
             <Image
               src={`/images/Food/${imageLocal}`}
@@ -135,7 +53,7 @@ export default function ItemFoodGrid(props) {
       </ImageWrapper>
 
       <FoodInfo>
-        <Link href={`/fastfood/product/${convertNameURL(name)}`}>
+        <Link href={`/fastfood/product/${nameFormat(name)}`}>
           <a>
             <p>{name}</p>
           </a>
@@ -143,21 +61,20 @@ export default function ItemFoodGrid(props) {
         <p>{description}</p>
       </FoodInfo>
       <div className="btn-order">
-        <ButtonOrder
-          type="order"
-          onClick={() => {
-            setLoad(true);
-            setTimeout(() => {
-              setLoad(false);
-              setOpenOrderProduct(true);
-            }, 1000);
-          }}
-        >
-          <span style={{ display: load ? "none" : "block" }}>Order Now</span>
-
-          {load && <BallBeat color="#ffca3c" loading />}
-        </ButtonOrder>
+        <ButtonOrderNow type="order" onClick={handleClickSetOrderNow}>
+          Order Now
+        </ButtonOrderNow>
       </div>
     </ItemFoodWrapper>
   );
 }
+
+const mapDispatchToprops = (dispatch) => {
+  return {
+    setProduct: (product) => {
+      dispatch(actionSetProduct(product));
+    },
+  };
+};
+
+export default connect(null, mapDispatchToprops)(ItemFoodGrid);
