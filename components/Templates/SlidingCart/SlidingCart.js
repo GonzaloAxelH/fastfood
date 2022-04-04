@@ -7,11 +7,7 @@ import ItemFoodCart from "../../Molecules/ItemsFood/ItemFoodCart/ItemFoodCart";
 import { connect } from "react-redux";
 import { FullContext } from "../../../pages/_app";
 import { FiTrash2 } from "react-icons/fi";
-import {
-  nameFormat,
-  getDecimalPrice,
-  getNumberPrice,
-} from "../../../helpers/cartHelpers";
+import { getDecimalPrice, getNumberPrice } from "../../../helpers/cartHelpers";
 import {
   CartWrapper,
   CartContent,

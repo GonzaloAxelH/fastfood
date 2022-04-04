@@ -2,6 +2,7 @@ import styled from "styled-components";
 export const WrapperForm = styled.div``;
 
 export const Price = styled.div`
+
   padding: 0.5em 0 0 0;
   margin: 0.5em 0;
   background-color: #fff;
@@ -16,6 +17,9 @@ export const Price = styled.div`
     font-size: 20px;
   }
 `;
+
+
+
 export const FormBottom = styled.div`
   display: flex;
   width: 100%;

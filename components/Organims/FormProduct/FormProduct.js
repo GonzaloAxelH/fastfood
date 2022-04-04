@@ -79,6 +79,7 @@ function FormOrderProduct({ product, addProductCart }) {
   useEffect(() => {
     setSubTotal();
   }, [
+    state.subTotal,
     state.priceUnit,
     state.extraToppingsOrder,
     state.crustOrder,

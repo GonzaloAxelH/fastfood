@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 import React, { useState, useEffect, useContext } from "react";
 //data
+
 import {
-  actionAddOrderCart,
   actionSaveCart,
   actionUpdateOrderCart,
 } from "../../../redux/actioncreators/actonsCart";
@@ -14,9 +14,10 @@ import InpusCrust from "../../Molecules/Inputs/InpusCrust";
 import InputSize from "../../Molecules/Inputs/InputSize";
 import InputQuantity from "../../Molecules/Inputs/InputQuantity";
 import ShowPrice from "../../Molecules/Prices/ShowPrice";
-import { BallBeat } from "react-pure-loaders";
 import usePriceFormat from "../../../Hooks/usePriceFormat";
+
 //Styles
+
 import {
   WrapperForm,
   Price,
@@ -71,6 +72,7 @@ function FormEditOrderCart({ productCart, updateOrderCart }) {
       });
     }
   };
+
   const setQuantityOrder = (num) => {
     setState({ ...state, quantityOrder: num });
   };
@@ -78,6 +80,7 @@ function FormEditOrderCart({ productCart, updateOrderCart }) {
   useEffect(() => {
     setSubTotal();
   }, [
+    setSubTotal,
     state.priceUnit,
     state.extraToppingsOrder,
     state.crustOrder,

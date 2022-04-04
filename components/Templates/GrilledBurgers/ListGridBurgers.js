@@ -14,7 +14,7 @@ function ListGridBurgers({ products }) {
   const [burgers, setBurgers] = React.useState([]);
   useEffect(() => {
     setBurgers(products);
-  }, []);
+  }, [products]);
   return (
     <ListGridBurgersStyled>
       {burgers.map((burger, index) => {

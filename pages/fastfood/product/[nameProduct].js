@@ -6,7 +6,7 @@ import ProductReviews from "../../../components/Templates/ProductReviews/Product
 import YouMayAlsoLike from "../../../components/Templates/YouMayAlsoLike/YouMayAlsoLike";
 import OtherProducts from "../../../components/Templates/OtherProducts/OtherProducts";
 import { connect } from "react-redux";
-import { WrapperPage } from "./ProductPageStyles";
+import { WrapperPage } from "../../../styles/PageStyles/ProductPageStyles.jsx";
 import { actionSetProduct } from "../../../redux/actioncreators/actionsProducts";
 import { nameFormat } from "../../../helpers/cartHelpers";
 function SingleProduct({ setProduct, allProducts, params }) {

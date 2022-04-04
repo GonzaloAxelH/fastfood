@@ -9,7 +9,7 @@ import {
   Contenido,
   ListItemsCart,
   RowItem,
-} from "./CartStyles";
+} from "../../../styles/PageStyles/CartStyles.jsx";
 import ButtonOrder from "../../../components/Atoms/Buttons/ButtonOrder/ButtonOrder";
 import { FullContext } from "../../_app";
 import {

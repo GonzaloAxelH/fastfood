@@ -46,7 +46,7 @@ function MiniNav({ productsCart }) {
         type="cart"
         onClick={() => setOpenCart(true)}
         Icon={FiShoppingBag}
-        number={productsCart.length}
+        number={productsCart.length === 0 ? "0" : productsCart.length}
       />
       <Item
         type="search"
