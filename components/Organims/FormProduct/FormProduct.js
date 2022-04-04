@@ -106,7 +106,6 @@ function FormOrderProduct({ product, addProductCart }) {
       subtotal: state,
       product: product,
     };
-    console.log(productOrder);
     addProductCart(productOrder);
     setOpenSlidingOrderProduct(false);
     setTimeout(() => {

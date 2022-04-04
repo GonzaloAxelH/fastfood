@@ -59,7 +59,6 @@ function FormEditOrderCart({ productCart, updateOrderCart }) {
     setState({ ...state, crustOrder: cr });
   };
   const setExtraToppingsOrder = (extraItem, action) => {
-    alert("extra");
     if (action === "REMOVE") {
       let newExtras = state.extraToppingsOrder.filter(
         (et) => et.name !== extraItem.name
