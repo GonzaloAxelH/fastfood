@@ -29,7 +29,7 @@ function FormEditOrderCart({ productCart, updateOrderCart }) {
   const { setOpenSlidingEditCart } = useContext(FullContext);
   const [state, setState] = useState({
     priceOptions: 0,
-    priceUnit: productCart.priceUnit || 0,
+    priceUnit: productCart.priceUnit,
     priceOptionAndPriceUnit: 0,
     subTotal: 0,
     sizeOrder: productCart.size || {},
@@ -59,6 +59,7 @@ function FormEditOrderCart({ productCart, updateOrderCart }) {
     setState({ ...state, crustOrder: cr });
   };
   const setExtraToppingsOrder = (extraItem, action) => {
+    alert("extra");
     if (action === "REMOVE") {
       let newExtras = state.extraToppingsOrder.filter(
         (et) => et.name !== extraItem.name
@@ -80,7 +81,6 @@ function FormEditOrderCart({ productCart, updateOrderCart }) {
   useEffect(() => {
     setSubTotal();
   }, [
-    setSubTotal,
     state.priceUnit,
     state.extraToppingsOrder,
     state.crustOrder,
