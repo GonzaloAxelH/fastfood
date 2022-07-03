@@ -8,7 +8,7 @@ const settings = {
     description: "The app description goes here.",
     social: {
       graphic:
-        "https://cheatcode-assets.s3.amazonaws.com/default-social-graphic.png",
+        "https://www.clarin.com/img/2021/06/17/LC25eDtCT_1200x630__1.jpg",
       twitter: "@gonzaloaxel",
     },
   },
