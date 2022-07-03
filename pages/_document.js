@@ -13,7 +13,7 @@ export default function Document() {
           schemaType="article"
           title="Home"
           description="Aplicacion de delivery FastFood Ilo , pedidos con metodo Stripe y Paypal by Gonzalo Axel"
-          image="/fastfood.png"
+          image="https://www.clarin.com/img/2021/06/17/LC25eDtCT_1200x630__1.jpg"
         />
       </Head>
       <Body id="body">
