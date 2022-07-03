@@ -14,7 +14,6 @@ import InpusCrust from "../../Molecules/Inputs/InpusCrust";
 import InputSize from "../../Molecules/Inputs/InputSize";
 import InputQuantity from "../../Molecules/Inputs/InputQuantity";
 import ShowPrice from "../../Molecules/Prices/ShowPrice";
-import { BallBeat } from "react-pure-loaders";
 import usePriceFormat from "../../../Hooks/usePriceFormat";
 //Styles
 import {

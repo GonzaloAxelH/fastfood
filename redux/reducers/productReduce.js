@@ -1,6 +1,5 @@
 import { initialState } from "../states/globalState";
 import { ACTION_PRODUCTS } from "../actioncreators/actionsProducts";
-import { nameFormat } from "../../helpers/cartHelpers";
 import { tempBurgers2 } from "../states/tempData";
 const setProduct = (state, payload) => {
   return {
